@@ -2,7 +2,7 @@
 made from each module's README.md. Run after the module scripts:
     python tools/build_site.py
 """
-import os, re, glob, html
+import os, re, glob, html, csv, json
 import markdown
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -131,7 +131,7 @@ def home(mods):
                     f'<div class="t"><span class="n">MODULE {i + 1}</span><h2>{html.escape(m["title"].split("·")[-1].strip())}</h2>'
                     f'<h3 lang="am">{am.get(m["name"], "")}</h3><p>{html.escape(m["desc"])}</p></div></a>'
                     for i, m in enumerate(mods))
-    stages = [("1 · Know the resources", "Catalogue of Ethiopian crop varieties and livestock breeds, with sources.", False),
+    stages = [("1 · Know the resources", "Catalogue: 99 livestock breeds and populations of 8 species, and the national crop variety register (scraper included).", True),
               ("2 · Design toolkit", "CRD, RCBD, Latin square, split-plot, alpha-lattice, augmented designs, on-farm trials, power.", False),
               ("3 · Crop breeding", "Multi-location variety trials (Module 1) · germplasm characterisation · participatory selection · seed systems.", True),
               ("4 · Livestock breeding", "Community-based goat breeding and fattening (Module 2) · dairy crossbreeding · village poultry · sheep CBBPs.", True),
@@ -147,6 +147,8 @@ def home(mods):
 <p class="dek">Ethiopia's plant and animal genetic resources, from field design to company. Each module starts from a real decision on African land, lays out the trial, runs every analysis, draws the charts you need to decide, and ends with the business the result makes possible.</p>
 <p class="dek am-block" lang="am">የኢትዮጵያ የዕፅዋትና የእንስሳት የዘረመል ሀብቶች፣ ከማሳ ዲዛይን እስከ ኩባንያ። እያንዳንዱ ሞጁል በአፍሪካ መሬት ላይ ካለ እውነተኛ ውሳኔ ይጀምራል፣ ሙከራውን ያቅዳል፣ ሁሉንም ትንተና ያካሂዳል፣ ለውሳኔ የሚያስፈልጉ ሥዕሎችን ያዘጋጃል፣ ውጤቱ በሚፈጥረው ንግድ ይደመደማል።</p>
 </div></header><main class="wrap">
+<h2 style="font:800 26px var(--display);margin-top:30px">Start here: the catalogue</h2>
+<a class="card" href="catalogue/" style="grid-template-columns:1fr"><div class="t"><span class="n">CATALOGUE</span><h2>Ethiopia's livestock breeds and crop varieties</h2><h3 lang="am">የኢትዮጵያ የእንስሳትና የሰብል ዝርያዎች</h3><p>Cattle, sheep, goats, chickens, camels, horses, donkeys and honeybees, plus the national Crop Variety Register. Searchable, every entry sourced, downloadable as CSV.</p></div></a>
 <h2 style="font:800 26px var(--display);margin-top:30px">Modules ready now</h2><div class="cards">{cards}</div>
 <h2 style="font:800 26px var(--display)">The road: from the ground to a company</h2><div class="road">{road}</div>
 <p>Everything is reproducible: <code>pip install -r requirements.txt</code>, then <code>python modules/01-teff-met/run.py</code>. Code, field books and data are on <a href="{REPO}">GitHub</a>.</p>
@@ -154,7 +156,77 @@ def home(mods):
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(page)
 
 
+def catalogue_page():
+    cdir = os.path.join(ROOT, "catalogue")
+    lv = list(csv.DictReader(open(os.path.join(cdir, "livestock_breeds.csv"), encoding="utf-8")))
+    cr = list(csv.DictReader(open(os.path.join(cdir, "crop_varieties.csv"), encoding="utf-8")))
+    src = list(csv.DictReader(open(os.path.join(cdir, "sources.csv"), encoding="utf-8")))
+    readme = markdown.markdown(open(os.path.join(cdir, "README.md"), encoding="utf-8").read(), extensions=["tables", "fenced_code"])
+    readme = re.sub(r'href="(?!http|#)([^"]+)"', lambda m: f'href="{REPO}/blob/main/catalogue/{m.group(1)}"', readme)
+    crop_keys = ["crop", "variety", "register_issue", "year_of_release", "altitude_masl", "rainfall_mm", "days_to_maturity",
+                 "on_farm_yield_qt_ha", "breeder_maintainer", "seed_color", "pest_reaction", "url"]
+    data = json.dumps({"lv": lv, "cr": [{k: r.get(k, "") for k in crop_keys} for r in cr],
+                       "src": {x["source_id"]: x["url"] for x in src}}, ensure_ascii=False)
+    css = CSS + """
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.ctl input{font:16px var(--body);padding:9px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--panel);color:var(--ink);min-width:260px}
+.ctl button{font:600 13.5px var(--display);border:1px solid var(--rule);background:var(--panel);color:var(--ink);padding:8px 12px;border-radius:999px;cursor:pointer}
+.ctl button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:12px;background:var(--panel);max-height:70vh}
+table.cat{border-collapse:collapse;width:100%;font-size:14.5px}
+table.cat th{position:sticky;top:0;background:var(--paper);font:700 12px var(--mono);text-transform:uppercase;color:var(--muted);text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule)}
+table.cat td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+table.cat td.b{font-weight:600}
+.count{font:600 14px var(--mono);color:var(--copper)}
+.stat-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.stat-row div{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:10px 14px}
+.stat-row b{display:block;font:800 26px var(--display);color:var(--copper)}
+"""
+    from collections import Counter
+    cnt = Counter(r["species"] for r in lv)
+    stats = "".join(f'<div><b>{n}</b>{k}</div>' for k, n in cnt.items())
+    page = HEAD.format(title="Catalogue: Ethiopia's crop varieties and livestock breeds · Breed to Business",
+                       desc=f"Searchable catalogue of {len(lv)} Ethiopian livestock breeds and populations and the national crop variety register, each entry with its source.",
+                       url=SITE + "catalogue/", img=SITE + "modules/01-teff-met/figures/06_gge_which_won_where.png", css=css)
+    page += f"""<header class="hero"><div class="wrap"><a class="home" href="../">← Breed to Business · ከዝርያ እስከ ንግድ</a>
+<p class="kicker">Catalogue · ካታሎግ · <a href="{REPO}/tree/main/catalogue">CSV files on GitHub</a></p>
+<h1>Ethiopia's livestock breeds and crop varieties<span class="am">የኢትዮጵያ የእንስሳትና የሰብል ዝርያዎች</span></h1>
+<p class="dek">Every entry cites its source. Search by name, synonym, region or trait.</p></div></header>
+<main class="wrap">
+<h2 style="font:800 26px var(--display);margin-top:28px">Livestock breeds and populations · የእንስሳት ዝርያዎች</h2>
+<div class="stat-row">{stats}</div>
+<div class="ctl" id="lv-ctl"><input id="lv-q" type="search" placeholder="Search breed, synonym, region…" aria-label="Search livestock"><span class="count" id="lv-n"></span></div>
+<div class="tw"><table class="cat"><thead><tr><th>Species</th><th>Breed</th><th>Synonyms</th><th>Group</th><th>Region / agro-ecology</th><th>Notes</th><th>Sources</th></tr></thead><tbody id="lv-b"></tbody></table></div>
+<h2 style="font:800 26px var(--display);margin-top:40px">Registered crop varieties · የተመዘገቡ የሰብል ዝርያዎች</h2>
+<p>From the national Crop Variety Register on the Ministry of Agriculture seed portal. <b>{len(cr)} varieties loaded.</b> The full register (about 1,500 varieties of about 150 crops) loads after running <code>tools/scrape_ethioseed.py</code>.</p>
+<div class="ctl" id="cr-ctl"><input id="cr-q" type="search" placeholder="Search crop, variety, breeder, trait…" aria-label="Search crops"><span class="count" id="cr-n"></span></div>
+<div class="tw"><table class="cat"><thead><tr><th>Crop</th><th>Variety</th><th>Issue</th><th>Released</th><th>Altitude m</th><th>Rainfall mm</th><th>Maturity days</th><th>On-farm yield qt/ha</th><th>Breeder / maintainer</th><th>Seed colour</th><th>Disease reaction</th></tr></thead><tbody id="cr-b"></tbody></table></div>
+<section class="md" style="margin-top:30px">{readme}</section>
+</main>
+<script>
+var D = {data};
+function esc(s){{return (s||"").replace(/[&<>"]/g,function(c){{return {{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}}[c];}});}}
+function srcLinks(s){{return s.split("; ").map(function(id){{return D.src[id]?'<a href="'+D.src[id]+'">'+id+'</a>':id;}}).join(", ");}}
+function setup(kind, rows, keyField, render, cols){{
+  var cats=[];rows.forEach(function(r){{if(cats.indexOf(r[keyField])<0)cats.push(r[keyField]);}});
+  var ctl=document.getElementById(kind+"-ctl"), cur="all";
+  [["all","All · ሁሉም"]].concat(cats.map(function(c){{return [c,c];}})).forEach(function(c){{
+    var b=document.createElement("button");b.type="button";b.textContent=c[1];b.setAttribute("aria-pressed",c[0]==="all");
+    b.onclick=function(){{cur=c[0];ctl.querySelectorAll("button").forEach(function(x){{x.setAttribute("aria-pressed",x===b);}});draw();}};
+    ctl.insertBefore(b,document.getElementById(kind+"-n"));}});
+  var q=document.getElementById(kind+"-q");q.oninput=draw;
+  function draw(){{var t=q.value.toLowerCase(),out=rows.filter(function(r){{return (cur==="all"||r[keyField]===cur)&&(!t||cols.some(function(k){{return (r[k]||"").toLowerCase().indexOf(t)>=0;}}));}});
+    document.getElementById(kind+"-b").innerHTML=out.map(render).join("");document.getElementById(kind+"-n").textContent=out.length+" shown";}}
+  draw();
+}}
+setup("lv",D.lv,"species",function(r){{return "<tr><td>"+esc(r.species)+"</td><td class=b>"+esc(r.breed)+"</td><td>"+esc(r.synonyms)+"</td><td>"+esc(r.breed_group)+"</td><td>"+esc(r.region_agroecology)+"</td><td>"+esc(r.notes)+"</td><td>"+srcLinks(r.sources)+"</td></tr>";}},["breed","synonyms","breed_group","region_agroecology","notes","species"]);
+setup("cr",D.cr,"crop",function(r){{return "<tr><td>"+esc(r.crop)+"</td><td class=b><a href=\\""+esc(r.url)+"\\">"+esc(r.variety)+"</a></td><td>"+esc(r.register_issue)+"</td><td>"+esc(r.year_of_release)+"</td><td>"+esc(r.altitude_masl)+"</td><td>"+esc(r.rainfall_mm)+"</td><td>"+esc(r.days_to_maturity)+"</td><td>"+esc(r.on_farm_yield_qt_ha)+"</td><td>"+esc(r.breeder_maintainer)+"</td><td>"+esc(r.seed_color)+"</td><td>"+esc(r.pest_reaction)+"</td></tr>";}},["crop","variety","breeder_maintainer","pest_reaction","year_of_release","register_issue"]);
+</script>""" + AUTHOR
+    open(os.path.join(cdir, "index.html"), "w", encoding="utf-8").write(page)
+    return len(lv), len(cr)
+
+
 if __name__ == "__main__":
     mods = [module_page(f) for f in sorted(glob.glob(os.path.join(ROOT, "modules", "*"))) if os.path.isdir(f)]
     home(mods)
-    print("built", [m["name"] for m in mods])
+    print("built", [m["name"] for m in mods], "catalogue", catalogue_page())

@@ -6,6 +6,10 @@ A practical curriculum for breeders, students and young agri-entrepreneurs in Af
 
 **Website:** https://muler-21.github.io/breed-to-business/
 
+## Start here: the catalogue
+
+[`catalogue/`](catalogue/) holds open, sourced tables of **Ethiopia's livestock breeds** (99 breeds and populations of cattle, sheep, goats, chickens, camels, horses, donkeys and honeybees) and **the national Crop Variety Register**. The crop table fills completely with one command run on your own computer: `python tools/scrape_ethioseed.py` (see [catalogue/README.md](catalogue/README.md)).
+
 ## Modules ready now
 
 | # | Module | The decision | What you get |
@@ -19,6 +23,7 @@ Each module folder holds `run.py` (one command reproduces everything), `fieldboo
 pip install -r requirements.txt
 python modules/01-teff-met/run.py
 python modules/02-goat-breeding-fattening/run.py
+python tools/scrape_ethioseed.py  # fill the full crop variety register (run on your computer)
 python tools/build_site.py        # rebuild the website pages
 ```
 
@@ -28,7 +33,7 @@ The analysis library `b2b/` uses only numpy, pandas, scipy and matplotlib, so it
 
 | Stage | Modules planned |
 |---|---|
-| 1 · Know the resources | Catalogue of Ethiopian crop varieties and livestock breeds (cattle, sheep, goats, chickens, camels, equines, honeybees), with sources such as FAO DAD-IS and the Ethiopian Biodiversity Institute |
+| 1 · Know the resources | ✅ Catalogue of livestock breeds and the crop variety register (scraper). Next: landraces from the national genebank, performance data, Amharic names |
 | 2 · Design toolkit | CRD, RCBD, Latin square, split-plot, augmented designs for unreplicated germplasm, on-farm trials, sample size and power |
 | 3 · Crop breeding | Germplasm characterisation, crossing and generation advance, participatory variety selection, seed systems |
 | 4 · Livestock breeding | Dairy crossbreeding and milk recording, village poultry testing, sheep CBBPs (Menz, Bonga, Horro) |
