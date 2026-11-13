@@ -1,0 +1,37 @@
+goat_id,block,treatment,initial_wt_kg
+G17,1,T4: + concentrate,34.7
+G04,1,T2: + cowpea hay,33.3
+G28,1,T3: + 75% conc. + 25% hay,33.0
+G15,1,T1: browsing only,32.9
+G02,2,T3: + 75% conc. + 25% hay,32.7
+G20,2,T4: + concentrate,32.1
+G18,2,T1: browsing only,31.8
+G34,2,T2: + cowpea hay,31.2
+G16,3,T4: + concentrate,31.1
+G26,3,T2: + cowpea hay,30.9
+G10,3,T1: browsing only,30.7
+G21,3,T3: + 75% conc. + 25% hay,30.1
+G12,4,T4: + concentrate,30.1
+G11,4,T1: browsing only,30.0
+G35,4,T2: + cowpea hay,29.8
+G31,4,T3: + 75% conc. + 25% hay,29.7
+G30,5,T1: browsing only,29.6
+G01,5,T2: + cowpea hay,29.3
+G22,5,T4: + concentrate,28.8
+G27,5,T3: + 75% conc. + 25% hay,28.6
+G24,6,T3: + 75% conc. + 25% hay,28.2
+G05,6,T4: + concentrate,28.1
+G25,6,T2: + cowpea hay,27.8
+G36,6,T1: browsing only,27.7
+G09,7,T1: browsing only,27.5
+G29,7,T3: + 75% conc. + 25% hay,25.9
+G07,7,T4: + concentrate,25.8
+G06,7,T2: + cowpea hay,25.8
+G23,8,T1: browsing only,25.7
+G32,8,T4: + concentrate,25.6
+G19,8,T3: + 75% conc. + 25% hay,25.1
+G08,8,T2: + cowpea hay,25.0
+G33,9,T3: + 75% conc. + 25% hay,24.7
+G14,9,T2: + cowpea hay,23.5
+G13,9,T4: + concentrate,23.1
+G03,9,T1: browsing only,22.8

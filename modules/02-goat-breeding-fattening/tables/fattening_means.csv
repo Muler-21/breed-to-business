@@ -1,0 +1,5 @@
+treatment,initial_kg,final_kg,adg_g,sd_adg,tukey
+T1: browsing only,28.74,31.37,29.21,16.55,c
+T2: + cowpea hay,28.51,33.12,51.23,11.38,b
+T3: + 75% conc. + 25% hay,28.67,34.14,60.84,10.38,ab
+T4: + concentrate,28.82,35.55,74.8,14.42,a

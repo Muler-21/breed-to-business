@@ -1,0 +1,5 @@
+ration,purchase,sale,gross_margin,feed_cost,net_return,dominated,MRR_pct
+T1: browsing only,9485.7,10980.7,1495.0,0.0,1495.0,False,
+T2: + cowpea hay,9408.7,11592.8,2184.1,432.0,1752.1,False,59.5
+T3: + 75% conc. + 25% hay,9460.0,11949.8,2489.8,1323.0,1166.8,True,
+T4: + concentrate,9511.3,12444.1,2932.7,1620.0,1312.7,True,

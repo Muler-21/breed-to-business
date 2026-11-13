@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 1 · Testing 60 teff varieties across locations and years · Breed to Business</title><meta name="description" content="A breeder (or a seed company) has 58 new teff lines and must decide which to release, and where. Farmers pay for seed that wins in their field, in good years and bad."><meta name="author" content="Mulusew Kassa Bitew">
+<link rel="canonical" href="https://muler-21.github.io/breed-to-business/modules/01-teff-met/">
+<meta property="og:type" content="article"><meta property="og:title" content="Module 1 · Testing 60 teff varieties across locations and years · Breed to Business"><meta property="og:description" content="A breeder (or a seed company) has 58 new teff lines and must decide which to release, and where. Farmers pay for seed that wins in their field, in good years and bad.">
+<meta property="og:url" content="https://muler-21.github.io/breed-to-business/modules/01-teff-met/"><meta property="og:image" content="https://muler-21.github.io/breed-to-business/modules/01-teff-met/figures/08_decision_map.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Literata:opsz,wght@7..72,400;7..72,600&family=Noto+Serif+Ethiopic:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f5f2;--panel:#fff;--ink:#16211b;--muted:#5a665e;--rule:#d8ddd6;--accent:#0f7a6c;--accent-soft:#e1f1ed;--copper:#b5602b;--copper-soft:#f7e8dd;
+--display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"Literata",Georgia,serif;--ethi:"Noto Serif Ethiopic","Nyala",serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--paper:#0f1412;--panel:#161d1a;--ink:#e5ebe7;--muted:#9aa8a0;--rule:#28322d;--accent:#4cc3b0;--accent-soft:#15302b;--copper:#e08a52;--copper-soft:#33231a}
+ .md img{background:#fff;border-radius:8px}}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.65 var(--body)}
+a{color:var(--accent)}.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.hero{padding:34px 0 26px;border-bottom:1px solid var(--rule)}
+.home{font:600 14px var(--display);text-decoration:none}
+.kicker{font:500 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--copper);margin:14px 0 8px}
+h1{font:800 clamp(32px,5.5vw,54px)/1.05 var(--display);margin:0;letter-spacing:-.02em;text-wrap:balance}
+h1 .am,.am-title{display:block;font:700 .55em/1.5 var(--ethi);color:var(--accent);margin-top:8px;letter-spacing:0}
+.dek{color:var(--muted);max-width:66ch}
+.md h1{font-size:clamp(28px,4.4vw,42px);margin-top:10px}
+.md h2{font:800 28px/1.2 var(--display);margin:46px 0 12px;padding-top:18px;border-top:1px solid var(--rule)}
+.md h3{font:700 20px/1.3 var(--display);margin:28px 0 8px}
+.md img{max-width:min(100%,860px);height:auto;display:block;margin:18px auto;border:1px solid var(--rule);border-radius:10px;background:#fff}
+.md table{border-collapse:collapse;width:100%;font-size:15px;margin:16px 0;display:block;overflow-x:auto}
+.md th,.md td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.md th{font:700 12.5px var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--panel)}
+.md td{background:var(--panel)}
+.md code{font:500 .86em var(--mono);background:var(--panel);border:1px solid var(--rule);border-radius:5px;padding:1px 5px}
+.md pre{background:#16211b;color:#e5ebe7;border-radius:10px;padding:14px 16px;overflow-x:auto}
+.md pre code{background:none;border:0;color:inherit;padding:0}
+.md blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid var(--copper);background:var(--copper-soft);border-radius:0 10px 10px 0}
+.md hr{border:0;border-top:1px solid var(--rule);margin:30px 0}
+.am-block{font-family:var(--ethi);line-height:1.9}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:26px 0}
+.card{display:grid;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.card:hover{border-color:var(--accent)}.card img{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;background:#fff}
+.card .t{padding:16px 18px}.card .n{font:700 12px var(--mono);color:var(--copper)}
+.card h2{font:800 22px/1.2 var(--display);margin:4px 0}.card h3{font:600 16px/1.6 var(--ethi);color:var(--accent);margin:0 0 6px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.road{display:grid;gap:10px;margin:20px 0}.stage{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 16px}
+.stage b{font:700 16px var(--display)}.stage span{display:block;color:var(--muted);font-size:15.5px}
+.stage.ready{border-color:var(--accent)}
+footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
+.author{padding:20px;border:1px solid var(--rule);border-radius:14px;background:var(--panel);color:var(--ink);font-size:15.5px}
+.author .name{font:800 20px var(--display);margin:0 0 4px}.author p{margin:0 0 6px}.author .meta,.author .copy{color:var(--muted)}
+.author .apps a{margin-right:10px}.author .copy{font-size:14px;margin-top:10px}
+#gc-views{font:500 13px var(--mono);color:var(--muted);text-align:center;margin:18px 0 0}
+</style></head><body>
+<header class="hero"><div class="wrap"><a class="home" href="../../">← Breed to Business · ከዝርያ እስከ ንግድ</a><p class="kicker">Module · <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/01-teff-met">code and data on GitHub</a></p></div></header><main class="wrap md"><h1>Module 1 · Testing 60 teff varieties across locations and years</h1>
+<p><strong>ሞጁል 1 · 60 የጤፍ ዝርያዎችን በተለያዩ ቦታዎችና ዓመታት መሞከር</strong></p>
+<blockquote>
+<p><strong>The business question.</strong> A breeder (or a seed company) has 58 new teff lines and must decide which to release, and <em>where</em>. Farmers pay for seed that wins in <em>their</em> field, in good years and bad. This module takes you from an empty field to that decision: design, field layout, data recording, every ANOVA, the G × E analysis, and the charts a release committee asks for.</p>
+</blockquote>
+<p>The data here are <strong>simulated for teaching</strong>, with realistic Ethiopian values: trial practice follows published national teff trials (2 m × 2 m plots, three replications, alpha-lattice blocks), and the national average farm yield of teff is about 1.9 t/ha. Replace the data with your own field books and run the same script.</p>
+<hr />
+<h2>1. The trial plan</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Choice</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entries</td>
+<td>58 candidate lines + 2 checks = 60</td>
+<td>Checks: <strong>Quncho</strong> (high-potential areas) and <strong>Tsedey</strong> (low-moisture areas), so every line is compared with what farmers already grow</td>
+</tr>
+<tr>
+<td>Design</td>
+<td>Alpha-lattice, 3 replicates, 10 incomplete blocks of 6 plots per replicate</td>
+<td>60 plots in one block would span very different soil; small blocks of 6 remove that soil trend. Every pair of varieties shares a block at most once (checked by the script)</td>
+</tr>
+<tr>
+<td>Plot</td>
+<td>2 m × 2 m = 4 m², rows 20 cm apart; 1 m between plots, 1.5 m between blocks</td>
+<td>Standard for national teff trials</td>
+</tr>
+<tr>
+<td>Field size per site</td>
+<td>35.5 m × 51.0 m ≈ <strong>0.18 ha</strong>, 180 plots</td>
+<td>Fits on one research-station field</td>
+</tr>
+<tr>
+<td>Seed</td>
+<td>12 g per plot (30 kg/ha); <strong>36 g per variety per site, 2.16 kg per site</strong></td>
+<td>Prepare and label seed packets before the season</td>
+</tr>
+<tr>
+<td>Locations</td>
+<td>Debre Zeit, Holetta, Adet, Debre Markos (high potential) and Alem Tena (low moisture)</td>
+<td>Cover the target region, including the dry end</td>
+</tr>
+<tr>
+<td>Years</td>
+<td>3 (2024–2026); the script handles 2 to 5</td>
+<td>Years differ in rainfall, which you cannot predict, so you need more than one</td>
+</tr>
+<tr>
+<td>Randomisation</td>
+<td>New for every site and every year</td>
+<td>Field books are in <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/01-teff-met/fieldbooks/"><code>fieldbooks/</code></a></td>
+</tr>
+<tr>
+<td>Traits</td>
+<td>Grain yield, days to maturity, plant height, lodging</td>
+<td>Yield pays; maturity decides fit to the season</td>
+</tr>
+</tbody>
+</table>
+<h3>Field layout (one site, one year)</h3>
+<p><img alt="Field layout" src="figures/01_field_layout.png" /></p>
+<p><strong>How to lay it out:</strong> peg the 35.5 m × 51 m rectangle, mark the 15 plot rows (every 3.5 m), and in each row two blocks of six 2 m plots. Walk the plots in serpentine order: plot 101 is top-left, plot 112 top-right, plot 113 starts back on the right. Sow, label each plot with its plot number (not the variety name, so scorers are not biased), and keep the field book in a plastic sleeve.</p>
+<h3>Recording yield</h3>
+<p>Harvest the whole 4 m² plot (or a fixed net area if borders were damaged), thresh, clean and weigh the grain in grams. Convert:</p>
+<pre><code>yield (t/ha) = grams per plot ÷ (plot area in m² × 100)    e.g. 1,000 g ÷ (4 × 100) = 2.5 t/ha
+</code></pre>
+<p>Record days to maturity when about 90% of the panicles are mature, and note anything unusual (hail, waterlogging, birds) in the notes column. The analysis can only fix what you wrote down.</p>
+<hr />
+<h2>2. Step 1: analyse each site and year separately</h2>
+<p>For each of the 15 environments the script fits <strong>replicate + block within replicate + variety</strong>, with variety tested <em>after</em> removing the block effects.</p>
+<p>ANOVA for Debre Zeit 2024:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>df</th>
+<th>SS</th>
+<th>MS</th>
+<th>F</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Replication</td>
+<td>2</td>
+<td>0.702</td>
+<td>0.351</td>
+<td>5.349</td>
+<td>0.006</td>
+</tr>
+<tr>
+<td>Block(Rep), unadjusted</td>
+<td>27</td>
+<td>2.097</td>
+<td>0.078</td>
+<td>1.183</td>
+<td>0.273</td>
+</tr>
+<tr>
+<td>Genotype, adjusted</td>
+<td>59</td>
+<td>12.043</td>
+<td>0.204</td>
+<td>3.110</td>
+<td>&lt;0.001</td>
+</tr>
+<tr>
+<td>Residual</td>
+<td>91</td>
+<td>5.973</td>
+<td>0.066</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Quality check for every environment:</p>
+<table>
+<thead>
+<tr>
+<th>Env</th>
+<th>Mean t/ha</th>
+<th>CV %</th>
+<th>LSD 5%</th>
+<th>H²</th>
+<th>Efficiency vs RCBD %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DZ24</td>
+<td>2.53</td>
+<td>10.14</td>
+<td>0.42</td>
+<td>0.68</td>
+<td>111.00</td>
+</tr>
+<tr>
+<td>HO24</td>
+<td>2.39</td>
+<td>11.89</td>
+<td>0.46</td>
+<td>0.57</td>
+<td>96.37</td>
+</tr>
+<tr>
+<td>AD24</td>
+<td>2.31</td>
+<td>8.95</td>
+<td>0.34</td>
+<td>0.83</td>
+<td>94.79</td>
+</tr>
+<tr>
+<td>AT24</td>
+<td>1.54</td>
+<td>17.78</td>
+<td>0.44</td>
+<td>0.59</td>
+<td>101.30</td>
+</tr>
+<tr>
+<td>DM24</td>
+<td>2.45</td>
+<td>9.68</td>
+<td>0.38</td>
+<td>0.78</td>
+<td>117.09</td>
+</tr>
+<tr>
+<td>DZ25</td>
+<td>2.26</td>
+<td>11.62</td>
+<td>0.43</td>
+<td>0.63</td>
+<td>101.85</td>
+</tr>
+<tr>
+<td>HO25</td>
+<td>2.07</td>
+<td>9.77</td>
+<td>0.33</td>
+<td>0.79</td>
+<td>116.62</td>
+</tr>
+<tr>
+<td>AD25</td>
+<td>2.05</td>
+<td>11.12</td>
+<td>0.37</td>
+<td>0.76</td>
+<td>103.90</td>
+</tr>
+<tr>
+<td>AT25</td>
+<td>1.30</td>
+<td>18.62</td>
+<td>0.39</td>
+<td>0.68</td>
+<td>117.02</td>
+</tr>
+<tr>
+<td>DM25</td>
+<td>2.17</td>
+<td>10.44</td>
+<td>0.37</td>
+<td>0.75</td>
+<td>125.68</td>
+</tr>
+<tr>
+<td>DZ26</td>
+<td>2.69</td>
+<td>8.57</td>
+<td>0.37</td>
+<td>0.77</td>
+<td>107.51</td>
+</tr>
+<tr>
+<td>HO26</td>
+<td>2.55</td>
+<td>8.75</td>
+<td>0.36</td>
+<td>0.77</td>
+<td>106.55</td>
+</tr>
+<tr>
+<td>AD26</td>
+<td>2.47</td>
+<td>10.02</td>
+<td>0.40</td>
+<td>0.74</td>
+<td>97.93</td>
+</tr>
+<tr>
+<td>AT26</td>
+<td>1.80</td>
+<td>11.83</td>
+<td>0.35</td>
+<td>0.76</td>
+<td>113.06</td>
+</tr>
+<tr>
+<td>DM26</td>
+<td>2.50</td>
+<td>10.71</td>
+<td>0.43</td>
+<td>0.65</td>
+<td>120.69</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What to look at</strong></p>
+<ul>
+<li><strong>CV%</strong> (coefficient of variation) should be below about 15–20%. Alem Tena, the dry site, is the noisiest, as dry sites usually are.</li>
+<li><strong>Efficiency vs RCBD</strong> above 100% means the small blocks paid off: the same data analysed as an ordinary randomised complete block design would have had a larger error.</li>
+<li><strong>Heritability (H²)</strong> shows how well one site ranks the varieties. One site alone is never enough.</li>
+</ul>
+<h2>3. Step 2: combined analysis over locations and years</h2>
+<p>Locations and years are treated as <strong>random</strong>: they stand for the farms and the future seasons where the variety will be grown. So the variety effect is tested against the interactions, not only against plot error.</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>df</th>
+<th>SS</th>
+<th>MS</th>
+<th>F</th>
+<th>p</th>
+<th>% of SS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Year (Y)</td>
+<td>2</td>
+<td>86.111</td>
+<td>43.056</td>
+<td>132.313</td>
+<td>&lt;0.001</td>
+<td>13.800</td>
+</tr>
+<tr>
+<td>Location (L)</td>
+<td>4</td>
+<td>307.903</td>
+<td>76.976</td>
+<td>236.552</td>
+<td>&lt;0.001</td>
+<td>49.500</td>
+</tr>
+<tr>
+<td>L x Y</td>
+<td>8</td>
+<td>2.603</td>
+<td>0.325</td>
+<td>5.586</td>
+<td>&lt;0.001</td>
+<td>0.400</td>
+</tr>
+<tr>
+<td>Genotype (G)</td>
+<td>59</td>
+<td>89.283</td>
+<td>1.513</td>
+<td>3.464</td>
+<td>&lt;0.001</td>
+<td>14.300</td>
+</tr>
+<tr>
+<td>G x L</td>
+<td>236</td>
+<td>78.254</td>
+<td>0.332</td>
+<td>4.270</td>
+<td>&lt;0.001</td>
+<td>12.600</td>
+</tr>
+<tr>
+<td>G x Y</td>
+<td>118</td>
+<td>21.581</td>
+<td>0.183</td>
+<td>2.355</td>
+<td>&lt;0.001</td>
+<td>3.500</td>
+</tr>
+<tr>
+<td>G x L x Y</td>
+<td>472</td>
+<td>36.655</td>
+<td>0.078</td>
+<td>1.333</td>
+<td>&lt;0.001</td>
+<td>5.900</td>
+</tr>
+<tr>
+<td>Pooled error</td>
+<td>1365</td>
+<td>79.519</td>
+<td>0.058</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>What it means</strong></p>
+<ul>
+<li>The environment (location and year) causes most of the variation. That is normal and is not what you select on.</li>
+<li><strong>G × L (12.6% of SS) is much larger than G × Y (3.5%).</strong> Variety ranking changes between <em>locations</em> in a repeatable way, but changes little between years. Repeatable differences can be used: recommend varieties for groups of locations, not for the whole country.</li>
+<li>Variance components (plot basis): genotype 0.0239, G × L 0.0282, G × Y 0.0070, G × L × Y 0.0065, error 0.0583.</li>
+</ul>
+<h2>4. Step 3: how many locations and years do you need?</h2>
+<p><img alt="Heritability planning" src="figures/04_heritability_planning.png" /></p>
+<p>With 5 locations, one year gives a heritability of <strong>0.573</strong>, three years <strong>0.711</strong>. Because G × L is large, adding locations helps more than adding years. Reaching 0.80 for the whole region needs about 8–10 locations; testing <em>within</em> each mega-environment (Step 4) is the cheaper way.</p>
+<h2>5. Step 4: AMMI and GGE: who wins where?</h2>
+<p><img alt="Environment means" src="figures/02_environment_means.png" /></p>
+<p><img alt="Sources of variation" src="figures/03_variance_sources.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>df</th>
+<th>SS</th>
+<th>MS</th>
+<th>% of G x E</th>
+<th>F</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IPCA1</td>
+<td>72</td>
+<td>26.445</td>
+<td>0.367</td>
+<td>19.375</td>
+<td>6.305</td>
+<td>&lt;0.001</td>
+</tr>
+<tr>
+<td>IPCA2</td>
+<td>70</td>
+<td>24.148</td>
+<td>0.345</td>
+<td>17.692</td>
+<td>5.922</td>
+<td>&lt;0.001</td>
+</tr>
+<tr>
+<td>IPCA3</td>
+<td>68</td>
+<td>19.055</td>
+<td>0.280</td>
+<td>13.961</td>
+<td>4.810</td>
+<td>&lt;0.001</td>
+</tr>
+<tr>
+<td>IPCA4</td>
+<td>66</td>
+<td>14.990</td>
+<td>0.227</td>
+<td>10.982</td>
+<td>3.899</td>
+<td>&lt;0.001</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="AMMI1 biplot" src="figures/05_ammi1_biplot.png" /></p>
+<p><img alt="GGE which-won-where" src="figures/06_gge_which_won_where.png" /></p>
+<p>The GGE biplot (PC1 40.5% + PC2 11.4% of variety + G × E variation) splits the environments into sectors. The variety at the corner of a sector wins there:</p>
+<ul>
+<li><strong>Low-moisture mega-environment (Alem Tena 2024, Alem Tena 2025, Alem Tena 2026): TF48 wins.</strong> Over the three Alem Tena seasons it averaged 2.01 t/ha against 1.91 t/ha for the drought check Tsedey and 1.65 t/ha for Quncho.</li>
+<li><strong>High-potential mega-environment (Debre Zeit, Adet, Debre Markos, Holetta): TF47 and TF50 win.</strong> TF47 averaged 2.77 t/ha against 2.67 t/ha for Quncho, and it matures about 11 days earlier.</li>
+</ul>
+<h2>6. Step 5: stability</h2>
+<p><img alt="Finlay-Wilkinson" src="figures/07_finlay_wilkinson.png" /></p>
+<p>A slope <strong>b near 1</strong> means the variety follows the environment like an average variety; <strong>b &gt; 1</strong> means it needs good conditions to shine; <strong>b &lt; 1</strong> means it holds up in poor conditions but cannot use good ones. The drought check Tsedey (b ≈ 0.36) is the classic "safe but low ceiling" type.</p>
+<h2>7. Step 6: the decision</h2>
+<p><img alt="Decision map" src="figures/08_decision_map.png" /></p>
+<p><img alt="Rank heat map" src="figures/09_rank_heatmap.png" /></p>
+<p>Top entries by the yield–stability index (rank of mean yield + rank of AMMI stability value, smaller is better):</p>
+<table>
+<thead>
+<tr>
+<th>Entry</th>
+<th>Mean t/ha</th>
+<th>% vs best check</th>
+<th>% envs beating check</th>
+<th>Worst env t/ha</th>
+<th>b (FW)</th>
+<th>ASV</th>
+<th>Maturity days</th>
+<th>Yield-stability index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TF45</td>
+<td>2.51</td>
+<td>1.58</td>
+<td>53.33</td>
+<td>1.52</td>
+<td>1.05</td>
+<td>0.11</td>
+<td>98.80</td>
+<td>8.00</td>
+</tr>
+<tr>
+<td>TF30</td>
+<td>2.45</td>
+<td>-0.68</td>
+<td>46.67</td>
+<td>1.60</td>
+<td>0.96</td>
+<td>0.13</td>
+<td>100.53</td>
+<td>13.00</td>
+</tr>
+<tr>
+<td>TF50</td>
+<td>2.55</td>
+<td>3.39</td>
+<td>53.33</td>
+<td>1.55</td>
+<td>1.10</td>
+<td>0.18</td>
+<td>99.62</td>
+<td>13.00</td>
+</tr>
+<tr>
+<td>Check-Quncho</td>
+<td>2.47</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>1.41</td>
+<td>1.13</td>
+<td>0.18</td>
+<td>102.76</td>
+<td>14.00</td>
+</tr>
+<tr>
+<td>TF57</td>
+<td>2.34</td>
+<td>-4.98</td>
+<td>40.00</td>
+<td>1.52</td>
+<td>1.03</td>
+<td>0.05</td>
+<td>106.67</td>
+<td>17.00</td>
+</tr>
+<tr>
+<td>TF08</td>
+<td>2.40</td>
+<td>-2.72</td>
+<td>33.33</td>
+<td>1.69</td>
+<td>0.84</td>
+<td>0.20</td>
+<td>103.80</td>
+<td>26.00</td>
+</tr>
+<tr>
+<td>TF54</td>
+<td>2.33</td>
+<td>-5.49</td>
+<td>33.33</td>
+<td>1.24</td>
+<td>1.13</td>
+<td>0.19</td>
+<td>99.42</td>
+<td>30.00</td>
+</tr>
+<tr>
+<td>TF16</td>
+<td>2.43</td>
+<td>-1.54</td>
+<td>46.67</td>
+<td>1.79</td>
+<td>0.78</td>
+<td>0.23</td>
+<td>106.84</td>
+<td>33.00</td>
+</tr>
+</tbody>
+</table>
+<h3>Recommendation</h3>
+<ol>
+<li><strong>Advance TF47 and TF50 to variety verification trials in high-potential areas.</strong> TF47 beats Quncho in 60% of environments and matures earlier, which also helps farmers escape end-of-season drought.</li>
+<li><strong>Advance TF48 for low-moisture areas</strong> such as the Alem Tena corridor. It is not the best nationally, but it is the best where farmers have the fewest options.</li>
+<li><strong>Keep TF45</strong> as the most <em>widely</em> stable line (top of the yield–stability index) for farmers who cannot choose by location.</li>
+<li>Drop the lines that never beat the checks: they cost land and labour every season.</li>
+</ol>
+<p><strong>Value to a farmer</strong> (example price 120 birr/kg): every extra 0.1 t/ha is worth <strong>12,000 birr per hectare</strong> per season. TF48 in the dry area gives about 0.36 t/ha more than Quncho, about <strong>43,461 birr/ha</strong>.</p>
+<hr />
+<h2>8. From variety to business</h2>
+<p>A released variety is only valuable when farmers can buy clean seed of it.</p>
+<ul>
+<li><strong>Seed multiplication arithmetic:</strong> a 1 ha seed field yielding 2.5 t of clean seed sows about <strong>140 ha</strong> at 18 kg/ha (the upper end of the 15–18 kg/ha recommended for row planting), or 83 ha at 30 kg/ha broadcast.</li>
+<li><strong>Business models:</strong> a youth seed-producer cooperative licensed to multiply the variety; a seed-cleaning and packing service; contract growing for a processor that wants one grain colour.</li>
+<li><strong>What to measure next:</strong> farmer-preferred traits (grain colour, <em>injera</em> quality, straw for cattle) through participatory variety selection in the target mega-environment.</li>
+</ul>
+<h2>9. Run it yourself</h2>
+<pre><code class="language-bash">pip install numpy pandas scipy matplotlib
+python run.py                 # design, field books, analysis and all figures
+</code></pre>
+<ul>
+<li><strong>Your own data:</strong> collect the 15 field books into one CSV with the same columns as <code>data/teff_met_simulated.csv</code> and set <code>DATA_FILE</code> at the top of <code>run.py</code>.</li>
+<li><strong>Another crop or size:</strong> change <code>N_TEST</code>, <code>CHECKS</code>, <code>BLOCK_SIZE</code>, <code>REPS</code>, <code>LOCATIONS</code> and <code>YEARS</code>. Block size must not exceed the number of blocks per replicate (e.g. 100 entries: blocks of 10; 36 entries: blocks of 6).</li>
+<li><strong>R users:</strong> <a href="https://github.com/Muler-21/breed-to-business/blob/main/modules/01-teff-met/R/teff_met.R"><code>R/teff_met.R</code></a> does the same analysis with agricolae, lme4 and metan.</li>
+</ul>
+<p>Outputs: <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/01-teff-met/tables/"><code>tables/</code></a> (every ANOVA, means, decision table) and <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/01-teff-met/figures/"><code>figures/</code></a>.</p>
+<hr />
+<h2>በአማርኛ አጭር ማጠቃለያ</h2>
+<ul class="am-block" lang="am">
+<li><strong>ጥያቄው፦</strong> ከ58 አዳዲስ የጤፍ መስመሮች የትኛው ይለቀቅ፣ የትስ?</li>
+<li><strong>ዲዛይኑ፦</strong> አልፋ-ላቲስ፣ 3 ድግግሞሽ፣ በእያንዳንዱ ድግግሞሽ 6 ማሳ ያላቸው 10 ብሎኮች፤ 2 ሜ × 2 ሜ ማሳ፤ 5 ቦታዎች × 3 ዓመታት፤ በየዓመቱ አዲስ የዕጣ ድልድል።</li>
+<li><strong>ውጤቱ፦</strong> አካባቢ ትልቁን ልዩነት ያመጣል፤ የዝርያ × የቦታ መስተጋብር ከዝርያ × የዓመት መስተጋብር ይበልጣል፤ ስለዚህ ዝርያዎችን በአካባቢ ቡድን መምከር ይገባል።</li>
+<li><strong>ውሳኔው፦</strong> TF47 እና TF50 ለከፍተኛ አቅም ቦታዎች (TF47 ከኩንቾ 11 ቀን ገደማ ቀድሞ ይደርሳል)፤ TF48 ለዝቅተኛ እርጥበት ቦታዎች (አለም ጤና)፤ TF45 በሰፊው የተረጋጋ።</li>
+<li><strong>ንግዱ፦</strong> 1 ሄክታር የዘር ማሳ በመስመር ተዘርቶ 140 ሄክታር ገደማ ለመዝራት በቂ ዘር ይሰጣል፤ ወጣቶች ዘር አባዢ ማኅበር ሊያቋቁሙ ይችላሉ።</li>
+</ul>
+<p><em>Data in this module are simulated for teaching. Trial practice follows published Ethiopian teff trials:</em>
+<em><a href="https://dergipark.org.tr/en/download/article-file/882832">Worede 2020, BSJ Agri</a> (2 m × 2 m plots, AMMI/GGE) ·
+<a href="https://boris.unibe.ch/130598">Jifar et al. 2019, J. Exp. Agric. Int.</a> (35 varieties, nine environments) ·
+<a href="https://ajol.info/index.php/ejas/article/view/271201/255992">Kulle variety release, Ethiop. J. Agric. Sci.</a> (drilled rows 0.2 m, SS shares) ·
+<a href="https://journals.hu.edu.et/hu-journals/index.php/agvs/article/download/90/52/292">70 tef genotypes in a 7 × 10 alpha-lattice, Hawassa Univ. journal</a> (Quncho and Tsedey checks) ·
+<a href="https://informahealthcare.com/doi/abs/10.1080/23311932.2020.1847760">Northeast Ethiopia tef G × E, Cogent Food &amp; Agric.</a> (30 kg/ha, 12 g per plot) ·
+<a href="https://tas.scione.com/cms/fulltext.php?id=380">national tef yield 1.91 t/ha, 2021–22</a> ·
+<a href="https://ejol.aau.edu.et/index.php/EJDR/article/download/10270/8212/19204">seed rate 15–18 kg/ha for row planting</a>.</em></p></main><footer class="wrap"><div class="author">
+<p class="name">Mulusew Kassa Bitew</p>
+<p>Postdoctoral Research Fellow, University of Molise, Italy</p>
+<p>Department of Plant Science, College of Agriculture and Natural Resources, Debre Markos University, Ethiopia</p>
+<p class="meta">ORCID <a href="https://orcid.org/0000-0001-6223-0037">0000-0001-6223-0037</a> · GitHub <a href="https://github.com/Muler-21">@Muler-21</a> · <a href="https://muler-21.github.io">muler-21.github.io</a></p>
+<p class="apps">Other apps: <a href="https://muler-21.github.io/Teck_Stories/">Tech Stories</a> <a href="https://muler-21.github.io/apps/adaptfit/">AdaptFit</a> <a href="https://muler-21.github.io/sebel-hakim/">Sebel Hakim</a> <a href="https://muler-21.github.io/research-integrity-compass/">Research Integrity Compass</a> <a href="https://muler-21.github.io/AMBKidsJoy/">AMBKidsJoy</a></p>
+<p class="copy">© 2026 Mulusew Kassa Bitew. All rights reserved. Cite with <a href="https://github.com/Muler-21/breed-to-business/blob/main/CITATION.cff">CITATION.cff</a>.</p>
+</div>
+<p id="gc-views" hidden></p>
+</footer>
+<script>
+(function () {{
+  var el = document.getElementById("gc-views");
+  if (!el || !window.fetch) return;
+  fetch("https://ambkidsjoy.goatcounter.com/counter/" + encodeURIComponent(location.pathname) + ".json")
+    .then(function (r) {{ if (!r.ok) throw new Error(r.status); return r.json(); }})
+    .then(function (d) {{ el.textContent = "👁 " + d.count + " views · እይታዎች"; el.hidden = false; }})
+    .catch(function () {{}});
+}})();
+</script>
+<script data-goatcounter="https://ambkidsjoy.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>

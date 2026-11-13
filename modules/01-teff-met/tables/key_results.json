@@ -1,0 +1,314 @@
+{
+ "field": {
+  "width_m": 35.5,
+  "length_m": 51.0,
+  "area_ha": 0.18105,
+  "plots_per_site": 180,
+  "seed_g_per_variety_per_site": 36,
+  "seed_kg_per_site": 2.16
+ },
+ "n_env": 15,
+ "n_plots": 2700,
+ "best_check": "Check-Quncho",
+ "site": [
+  {
+   "env": "DZ24",
+   "mean": 2.528,
+   "cv_pct": 10.136,
+   "h2": 0.678,
+   "efficiency_vs_rcbd_pct": 111.002
+  },
+  {
+   "env": "HO24",
+   "mean": 2.395,
+   "cv_pct": 11.895,
+   "h2": 0.574,
+   "efficiency_vs_rcbd_pct": 96.374
+  },
+  {
+   "env": "AD24",
+   "mean": 2.311,
+   "cv_pct": 8.955,
+   "h2": 0.833,
+   "efficiency_vs_rcbd_pct": 94.786
+  },
+  {
+   "env": "AT24",
+   "mean": 1.536,
+   "cv_pct": 17.775,
+   "h2": 0.59,
+   "efficiency_vs_rcbd_pct": 101.299
+  },
+  {
+   "env": "DM24",
+   "mean": 2.446,
+   "cv_pct": 9.676,
+   "h2": 0.778,
+   "efficiency_vs_rcbd_pct": 117.095
+  },
+  {
+   "env": "DZ25",
+   "mean": 2.261,
+   "cv_pct": 11.615,
+   "h2": 0.631,
+   "efficiency_vs_rcbd_pct": 101.852
+  },
+  {
+   "env": "HO25",
+   "mean": 2.073,
+   "cv_pct": 9.767,
+   "h2": 0.792,
+   "efficiency_vs_rcbd_pct": 116.624
+  },
+  {
+   "env": "AD25",
+   "mean": 2.053,
+   "cv_pct": 11.121,
+   "h2": 0.763,
+   "efficiency_vs_rcbd_pct": 103.9
+  },
+  {
+   "env": "AT25",
+   "mean": 1.3,
+   "cv_pct": 18.618,
+   "h2": 0.677,
+   "efficiency_vs_rcbd_pct": 117.016
+  },
+  {
+   "env": "DM25",
+   "mean": 2.171,
+   "cv_pct": 10.435,
+   "h2": 0.745,
+   "efficiency_vs_rcbd_pct": 125.683
+  },
+  {
+   "env": "DZ26",
+   "mean": 2.693,
+   "cv_pct": 8.57,
+   "h2": 0.769,
+   "efficiency_vs_rcbd_pct": 107.515
+  },
+  {
+   "env": "HO26",
+   "mean": 2.553,
+   "cv_pct": 8.745,
+   "h2": 0.766,
+   "efficiency_vs_rcbd_pct": 106.55
+  },
+  {
+   "env": "AD26",
+   "mean": 2.473,
+   "cv_pct": 10.024,
+   "h2": 0.741,
+   "efficiency_vs_rcbd_pct": 97.932
+  },
+  {
+   "env": "AT26",
+   "mean": 1.801,
+   "cv_pct": 11.827,
+   "h2": 0.761,
+   "efficiency_vs_rcbd_pct": 113.058
+  },
+  {
+   "env": "DM26",
+   "mean": 2.501,
+   "cv_pct": 10.714,
+   "h2": 0.649,
+   "efficiency_vs_rcbd_pct": 120.69
+  }
+ ],
+ "combined": [
+  {
+   "Source": "Year (Y)",
+   "df": 2,
+   "SS": 86.1114,
+   "MS": 43.0557,
+   "F": 132.313,
+   "p": 0.0,
+   "% of SS": 13.8356
+  },
+  {
+   "Source": "Location (L)",
+   "df": 4,
+   "SS": 307.9031,
+   "MS": 76.9758,
+   "F": 236.5515,
+   "p": 0.0,
+   "% of SS": 49.4709
+  },
+  {
+   "Source": "L x Y",
+   "df": 8,
+   "SS": 2.6033,
+   "MS": 0.3254,
+   "F": 5.5858,
+   "p": 0.0,
+   "% of SS": 0.4183
+  },
+  {
+   "Source": "Genotype (G)",
+   "df": 59,
+   "SS": 89.2834,
+   "MS": 1.5133,
+   "F": 3.4643,
+   "p": 0.0,
+   "% of SS": 14.3452
+  },
+  {
+   "Source": "G x L",
+   "df": 236,
+   "SS": 78.2542,
+   "MS": 0.3316,
+   "F": 4.2697,
+   "p": 0.0,
+   "% of SS": 12.5731
+  },
+  {
+   "Source": "G x Y",
+   "df": 118,
+   "SS": 21.5811,
+   "MS": 0.1829,
+   "F": 2.355,
+   "p": 0.0,
+   "% of SS": 3.4674
+  },
+  {
+   "Source": "G x L x Y",
+   "df": 472,
+   "SS": 36.6553,
+   "MS": 0.0777,
+   "F": 1.3331,
+   "p": 0.0,
+   "% of SS": 5.8894
+  },
+  {
+   "Source": "Pooled error",
+   "df": 1365,
+   "SS": 79.5193,
+   "MS": 0.0583,
+   "F": NaN,
+   "p": NaN,
+   "% of SS": NaN
+  }
+ ],
+ "vc": {
+  "error": 0.05826,
+  "gly": 0.00647,
+  "gl": 0.02821,
+  "gy": 0.00702,
+  "g": 0.02392
+ },
+ "h2_5x1": 0.573,
+ "h2_5x3": 0.711,
+ "h2_3x2": 0.581,
+ "ammi": [
+  {
+   "Source": "IPCA1",
+   "df": 72,
+   "SS": 26.4446,
+   "MS": 0.3673,
+   "% of G x E": 19.3746,
+   "F": 6.3047,
+   "p": 0.0
+  },
+  {
+   "Source": "IPCA2",
+   "df": 70,
+   "SS": 24.1478,
+   "MS": 0.345,
+   "% of G x E": 17.6919,
+   "F": 5.9216,
+   "p": 0.0
+  },
+  {
+   "Source": "IPCA3",
+   "df": 68,
+   "SS": 19.0552,
+   "MS": 0.2802,
+   "% of G x E": 13.9608,
+   "F": 4.8102,
+   "p": 0.0
+  },
+  {
+   "Source": "IPCA4",
+   "df": 66,
+   "SS": 14.9896,
+   "MS": 0.2271,
+   "% of G x E": 10.9821,
+   "F": 3.8986,
+   "p": 0.0
+  }
+ ],
+ "gge_expl": [
+  40.5,
+  11.4
+ ],
+ "winners": {
+  "DZ24": "TF47",
+  "HO24": "TF50",
+  "AD24": "TF47",
+  "AT24": "TF48",
+  "DM24": "TF47",
+  "DZ25": "TF50",
+  "HO25": "TF50",
+  "AD25": "TF50",
+  "AT25": "TF48",
+  "DM25": "TF47",
+  "DZ26": "TF47",
+  "HO26": "TF47",
+  "AD26": "TF47",
+  "AT26": "TF48",
+  "DM26": "TF53"
+ },
+ "loc_best": {
+  "Adet": "TF47",
+  "Alem Tena": "TF48",
+  "Debre Markos": "TF30",
+  "Debre Zeit": "TF47",
+  "Holetta": "TF56"
+ },
+ "top": [
+  {
+   "entry": "TF45",
+   "mean_t_ha": 2.505,
+   "vs_best_check_pct": 1.577,
+   "wins_vs_check_pct": 53.333,
+   "worst_env_t_ha": 1.518,
+   "b_FW": 1.053,
+   "ASV": 0.112,
+   "maturity_days": 98.8,
+   "extra_birr_per_ha": 4668.675,
+   "rank_mean": 3.0,
+   "rank_ASV": 5.0,
+   "rank_sum": 8.0
+  },
+  {
+   "entry": "TF30",
+   "mean_t_ha": 2.45,
+   "vs_best_check_pct": -0.679,
+   "wins_vs_check_pct": 46.667,
+   "worst_env_t_ha": 1.601,
+   "b_FW": 0.956,
+   "ASV": 0.129,
+   "maturity_days": 100.533,
+   "extra_birr_per_ha": -2009.989,
+   "rank_mean": 6.0,
+   "rank_ASV": 7.0,
+   "rank_sum": 13.0
+  },
+  {
+   "entry": "TF50",
+   "mean_t_ha": 2.55,
+   "vs_best_check_pct": 3.39,
+   "wins_vs_check_pct": 53.333,
+   "worst_env_t_ha": 1.549,
+   "b_FW": 1.105,
+   "ASV": 0.183,
+   "maturity_days": 99.622,
+   "extra_birr_per_ha": 10032.278,
+   "rank_mean": 2.0,
+   "rank_ASV": 11.0,
+   "rank_sum": 13.0
+  }
+ ]
+}

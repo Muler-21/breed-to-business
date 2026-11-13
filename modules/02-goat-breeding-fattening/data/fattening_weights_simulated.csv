@@ -1,0 +1,253 @@
+goat_id,block,treatment,day,weight_kg
+G17,1,T4: + concentrate,0,34.7
+G17,1,T4: + concentrate,15,35.02
+G17,1,T4: + concentrate,30,35.81
+G17,1,T4: + concentrate,45,36.95
+G17,1,T4: + concentrate,60,37.06
+G17,1,T4: + concentrate,75,38.59
+G17,1,T4: + concentrate,90,39.11
+G04,1,T2: + cowpea hay,0,33.3
+G04,1,T2: + cowpea hay,15,34.59
+G04,1,T2: + cowpea hay,30,35.69
+G04,1,T2: + cowpea hay,45,36.43
+G04,1,T2: + cowpea hay,60,37.09
+G04,1,T2: + cowpea hay,75,38.36
+G04,1,T2: + cowpea hay,90,39.54
+G28,1,T3: + 75% conc. + 25% hay,0,33.0
+G28,1,T3: + 75% conc. + 25% hay,15,34.12
+G28,1,T3: + 75% conc. + 25% hay,30,34.81
+G28,1,T3: + 75% conc. + 25% hay,45,36.24
+G28,1,T3: + 75% conc. + 25% hay,60,36.35
+G28,1,T3: + 75% conc. + 25% hay,75,37.45
+G28,1,T3: + 75% conc. + 25% hay,90,38.59
+G15,1,T1: browsing only,0,32.9
+G15,1,T1: browsing only,15,32.89
+G15,1,T1: browsing only,30,34.15
+G15,1,T1: browsing only,45,34.55
+G15,1,T1: browsing only,60,35.07
+G15,1,T1: browsing only,75,35.67
+G15,1,T1: browsing only,90,36.36
+G02,2,T3: + 75% conc. + 25% hay,0,32.7
+G02,2,T3: + 75% conc. + 25% hay,15,33.94
+G02,2,T3: + 75% conc. + 25% hay,30,33.8
+G02,2,T3: + 75% conc. + 25% hay,45,34.01
+G02,2,T3: + 75% conc. + 25% hay,60,35.47
+G02,2,T3: + 75% conc. + 25% hay,75,36.71
+G02,2,T3: + 75% conc. + 25% hay,90,36.71
+G20,2,T4: + concentrate,0,32.1
+G20,2,T4: + concentrate,15,34.0
+G20,2,T4: + concentrate,30,34.52
+G20,2,T4: + concentrate,45,35.32
+G20,2,T4: + concentrate,60,37.11
+G20,2,T4: + concentrate,75,39.32
+G20,2,T4: + concentrate,90,39.97
+G18,2,T1: browsing only,0,31.8
+G18,2,T1: browsing only,15,31.57
+G18,2,T1: browsing only,30,32.27
+G18,2,T1: browsing only,45,32.5
+G18,2,T1: browsing only,60,33.05
+G18,2,T1: browsing only,75,33.33
+G18,2,T1: browsing only,90,32.89
+G34,2,T2: + cowpea hay,0,31.2
+G34,2,T2: + cowpea hay,15,31.55
+G34,2,T2: + cowpea hay,30,32.71
+G34,2,T2: + cowpea hay,45,33.03
+G34,2,T2: + cowpea hay,60,33.76
+G34,2,T2: + cowpea hay,75,35.67
+G34,2,T2: + cowpea hay,90,35.68
+G16,3,T4: + concentrate,0,31.1
+G16,3,T4: + concentrate,15,33.18
+G16,3,T4: + concentrate,30,33.75
+G16,3,T4: + concentrate,45,34.62
+G16,3,T4: + concentrate,60,35.87
+G16,3,T4: + concentrate,75,36.78
+G16,3,T4: + concentrate,90,38.61
+G26,3,T2: + cowpea hay,0,30.9
+G26,3,T2: + cowpea hay,15,32.23
+G26,3,T2: + cowpea hay,30,32.2
+G26,3,T2: + cowpea hay,45,32.91
+G26,3,T2: + cowpea hay,60,33.6
+G26,3,T2: + cowpea hay,75,34.67
+G26,3,T2: + cowpea hay,90,35.23
+G10,3,T1: browsing only,0,30.7
+G10,3,T1: browsing only,15,31.25
+G10,3,T1: browsing only,30,32.29
+G10,3,T1: browsing only,45,33.61
+G10,3,T1: browsing only,60,33.6
+G10,3,T1: browsing only,75,34.61
+G10,3,T1: browsing only,90,35.72
+G21,3,T3: + 75% conc. + 25% hay,0,30.1
+G21,3,T3: + 75% conc. + 25% hay,15,30.98
+G21,3,T3: + 75% conc. + 25% hay,30,31.58
+G21,3,T3: + 75% conc. + 25% hay,45,34.24
+G21,3,T3: + 75% conc. + 25% hay,60,34.66
+G21,3,T3: + 75% conc. + 25% hay,75,36.05
+G21,3,T3: + 75% conc. + 25% hay,90,36.55
+G12,4,T4: + concentrate,0,30.1
+G12,4,T4: + concentrate,15,31.67
+G12,4,T4: + concentrate,30,32.9
+G12,4,T4: + concentrate,45,33.95
+G12,4,T4: + concentrate,60,35.79
+G12,4,T4: + concentrate,75,36.88
+G12,4,T4: + concentrate,90,38.36
+G11,4,T1: browsing only,0,30.0
+G11,4,T1: browsing only,15,30.03
+G11,4,T1: browsing only,30,30.46
+G11,4,T1: browsing only,45,30.16
+G11,4,T1: browsing only,60,30.82
+G11,4,T1: browsing only,75,31.23
+G11,4,T1: browsing only,90,31.09
+G35,4,T2: + cowpea hay,0,29.8
+G35,4,T2: + cowpea hay,15,30.23
+G35,4,T2: + cowpea hay,30,31.43
+G35,4,T2: + cowpea hay,45,31.21
+G35,4,T2: + cowpea hay,60,32.29
+G35,4,T2: + cowpea hay,75,32.89
+G35,4,T2: + cowpea hay,90,33.74
+G31,4,T3: + 75% conc. + 25% hay,0,29.7
+G31,4,T3: + 75% conc. + 25% hay,15,30.3
+G31,4,T3: + 75% conc. + 25% hay,30,32.39
+G31,4,T3: + 75% conc. + 25% hay,45,32.72
+G31,4,T3: + 75% conc. + 25% hay,60,33.18
+G31,4,T3: + 75% conc. + 25% hay,75,34.32
+G31,4,T3: + 75% conc. + 25% hay,90,35.65
+G30,5,T1: browsing only,0,29.6
+G30,5,T1: browsing only,15,29.73
+G30,5,T1: browsing only,30,31.05
+G30,5,T1: browsing only,45,30.92
+G30,5,T1: browsing only,60,31.72
+G30,5,T1: browsing only,75,32.89
+G30,5,T1: browsing only,90,33.79
+G01,5,T2: + cowpea hay,0,29.3
+G01,5,T2: + cowpea hay,15,29.93
+G01,5,T2: + cowpea hay,30,31.22
+G01,5,T2: + cowpea hay,45,31.15
+G01,5,T2: + cowpea hay,60,32.36
+G01,5,T2: + cowpea hay,75,33.08
+G01,5,T2: + cowpea hay,90,34.09
+G22,5,T4: + concentrate,0,28.8
+G22,5,T4: + concentrate,15,29.81
+G22,5,T4: + concentrate,30,31.22
+G22,5,T4: + concentrate,45,31.72
+G22,5,T4: + concentrate,60,33.5
+G22,5,T4: + concentrate,75,34.09
+G22,5,T4: + concentrate,90,35.11
+G27,5,T3: + 75% conc. + 25% hay,0,28.6
+G27,5,T3: + 75% conc. + 25% hay,15,29.54
+G27,5,T3: + 75% conc. + 25% hay,30,30.69
+G27,5,T3: + 75% conc. + 25% hay,45,31.29
+G27,5,T3: + 75% conc. + 25% hay,60,32.55
+G27,5,T3: + 75% conc. + 25% hay,75,33.56
+G27,5,T3: + 75% conc. + 25% hay,90,34.1
+G24,6,T3: + 75% conc. + 25% hay,0,28.2
+G24,6,T3: + 75% conc. + 25% hay,15,29.33
+G24,6,T3: + 75% conc. + 25% hay,30,29.91
+G24,6,T3: + 75% conc. + 25% hay,45,29.89
+G24,6,T3: + 75% conc. + 25% hay,60,31.09
+G24,6,T3: + 75% conc. + 25% hay,75,32.29
+G24,6,T3: + 75% conc. + 25% hay,90,32.57
+G05,6,T4: + concentrate,0,28.1
+G05,6,T4: + concentrate,15,28.42
+G05,6,T4: + concentrate,30,30.08
+G05,6,T4: + concentrate,45,30.95
+G05,6,T4: + concentrate,60,31.85
+G05,6,T4: + concentrate,75,33.22
+G05,6,T4: + concentrate,90,33.51
+G25,6,T2: + cowpea hay,0,27.8
+G25,6,T2: + cowpea hay,15,29.2
+G25,6,T2: + cowpea hay,30,28.72
+G25,6,T2: + cowpea hay,45,30.13
+G25,6,T2: + cowpea hay,60,30.1
+G25,6,T2: + cowpea hay,75,31.33
+G25,6,T2: + cowpea hay,90,32.68
+G36,6,T1: browsing only,0,27.7
+G36,6,T1: browsing only,15,27.95
+G36,6,T1: browsing only,30,29.57
+G36,6,T1: browsing only,45,29.07
+G36,6,T1: browsing only,60,29.71
+G36,6,T1: browsing only,75,30.41
+G36,6,T1: browsing only,90,30.35
+G09,7,T1: browsing only,0,27.5
+G09,7,T1: browsing only,15,28.74
+G09,7,T1: browsing only,30,29.11
+G09,7,T1: browsing only,45,29.63
+G09,7,T1: browsing only,60,30.13
+G09,7,T1: browsing only,75,31.16
+G09,7,T1: browsing only,90,30.42
+G29,7,T3: + 75% conc. + 25% hay,0,25.9
+G29,7,T3: + 75% conc. + 25% hay,15,26.93
+G29,7,T3: + 75% conc. + 25% hay,30,27.09
+G29,7,T3: + 75% conc. + 25% hay,45,28.88
+G29,7,T3: + 75% conc. + 25% hay,60,29.63
+G29,7,T3: + 75% conc. + 25% hay,75,30.6
+G29,7,T3: + 75% conc. + 25% hay,90,31.59
+G07,7,T4: + concentrate,0,25.8
+G07,7,T4: + concentrate,15,27.09
+G07,7,T4: + concentrate,30,27.69
+G07,7,T4: + concentrate,45,29.14
+G07,7,T4: + concentrate,60,30.25
+G07,7,T4: + concentrate,75,31.45
+G07,7,T4: + concentrate,90,32.36
+G06,7,T2: + cowpea hay,0,25.8
+G06,7,T2: + cowpea hay,15,27.16
+G06,7,T2: + cowpea hay,30,28.13
+G06,7,T2: + cowpea hay,45,29.16
+G06,7,T2: + cowpea hay,60,29.92
+G06,7,T2: + cowpea hay,75,30.13
+G06,7,T2: + cowpea hay,90,30.98
+G23,8,T1: browsing only,0,25.7
+G23,8,T1: browsing only,15,26.28
+G23,8,T1: browsing only,30,26.42
+G23,8,T1: browsing only,45,27.19
+G23,8,T1: browsing only,60,27.8
+G23,8,T1: browsing only,75,27.46
+G23,8,T1: browsing only,90,28.33
+G32,8,T4: + concentrate,0,25.6
+G32,8,T4: + concentrate,15,26.11
+G32,8,T4: + concentrate,30,27.06
+G32,8,T4: + concentrate,45,28.34
+G32,8,T4: + concentrate,60,28.74
+G32,8,T4: + concentrate,75,30.53
+G32,8,T4: + concentrate,90,31.84
+G19,8,T3: + 75% conc. + 25% hay,0,25.1
+G19,8,T3: + 75% conc. + 25% hay,15,25.73
+G19,8,T3: + 75% conc. + 25% hay,30,27.14
+G19,8,T3: + 75% conc. + 25% hay,45,27.47
+G19,8,T3: + 75% conc. + 25% hay,60,28.16
+G19,8,T3: + 75% conc. + 25% hay,75,28.75
+G19,8,T3: + 75% conc. + 25% hay,90,29.94
+G08,8,T2: + cowpea hay,0,25.0
+G08,8,T2: + cowpea hay,15,25.4
+G08,8,T2: + cowpea hay,30,25.7
+G08,8,T2: + cowpea hay,45,26.39
+G08,8,T2: + cowpea hay,60,28.33
+G08,8,T2: + cowpea hay,75,28.79
+G08,8,T2: + cowpea hay,90,30.16
+G33,9,T3: + 75% conc. + 25% hay,0,24.7
+G33,9,T3: + 75% conc. + 25% hay,15,25.3
+G33,9,T3: + 75% conc. + 25% hay,30,26.89
+G33,9,T3: + 75% conc. + 25% hay,45,28.25
+G33,9,T3: + 75% conc. + 25% hay,60,28.57
+G33,9,T3: + 75% conc. + 25% hay,75,29.75
+G33,9,T3: + 75% conc. + 25% hay,90,31.58
+G14,9,T2: + cowpea hay,0,23.5
+G14,9,T2: + cowpea hay,15,23.51
+G14,9,T2: + cowpea hay,30,24.65
+G14,9,T2: + cowpea hay,45,24.74
+G14,9,T2: + cowpea hay,60,24.66
+G14,9,T2: + cowpea hay,75,24.94
+G14,9,T2: + cowpea hay,90,26.0
+G13,9,T4: + concentrate,0,23.1
+G13,9,T4: + concentrate,15,24.61
+G13,9,T4: + concentrate,30,25.68
+G13,9,T4: + concentrate,45,27.28
+G13,9,T4: + concentrate,60,28.08
+G13,9,T4: + concentrate,75,28.9
+G13,9,T4: + concentrate,90,31.12
+G03,9,T1: browsing only,0,22.8
+G03,9,T1: browsing only,15,22.96
+G03,9,T1: browsing only,30,23.18
+G03,9,T1: browsing only,45,23.92
+G03,9,T1: browsing only,60,23.35
+G03,9,T1: browsing only,75,23.73
+G03,9,T1: browsing only,90,23.41

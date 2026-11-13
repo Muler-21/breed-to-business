@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use these designs, code or teaching materials, please cite them as below."
+title: "Breed to Business: Ethiopia's plant and animal genetic resources, from field design to company"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Bitew
+    given-names: Mulusew Kassa
+    orcid: "https://orcid.org/0000-0001-6223-0037"
+    affiliation: "Postdoctoral Research Fellow, University of Molise, Italy; Department of Plant Science, College of Agriculture and Natural Resources, Debre Markos University, Ethiopia"
+date-released: 2026-11-13
+url: "https://muler-21.github.io/breed-to-business/"
+repository-code: "https://github.com/Muler-21/breed-to-business"
+keywords:
+  - plant breeding
+  - animal breeding
+  - experimental design
+  - genotype by environment interaction
+  - AMMI
+  - GGE biplot
+  - community-based breeding
+  - teff
+  - goats
+  - Ethiopia
+  - agricultural entrepreneurship
