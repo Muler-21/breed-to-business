@@ -1,0 +1,5 @@
+Entry,Final severity %,AUDPC (%-days),Relative AUDPC %,Reaction
+New line A (resistant),6,105.0,6.960556844547564,Resistant
+New line B (slow rusting),22,308.0,20.417633410672853,Moderately resistant (slow rusting)
+Standard check,60,875.0,58.0046403712297,Susceptible
+Susceptible spreader,90,1508.5,100.0,Very susceptible

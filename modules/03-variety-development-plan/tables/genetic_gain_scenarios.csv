@@ -1,0 +1,5 @@
+Programme,i,r,L_years,Gain t/ha per year,Gain % per year,After 15 years t/ha
+"A. Conventional: one generation a year, select at AYT",1.4,0.6,10,0.016800000000000002,0.8400000000000001,2.2520000000000002
+B. Off-season nursery: 2 generations a year,1.4,0.6,7,0.024,1.2,2.36
+C. B + recycle best PYT lines as new parents,1.75,0.55,5,0.038500000000000006,1.9250000000000003,2.5775
+D. C + genomic prediction on early lines,1.75,0.45,3,0.0525,2.625,2.7875

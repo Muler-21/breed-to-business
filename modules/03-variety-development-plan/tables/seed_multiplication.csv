@@ -1,0 +1,6 @@
+Class,Seed sown kg,Area ha,Harvest kg,Season
+Breeder,20.0,0.6666666666666666,300.0,1
+Pre-basic,300.0,10.0,4500.0,2
+Basic,4500.0,150.0,67500.0,3
+Certified 1,67500.0,2250.0,1012500.0,4
+Farmers' fields,1012500.0,33750.0,15187500.0,5

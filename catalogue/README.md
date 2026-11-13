@@ -2,11 +2,12 @@
 
 **ካታሎግ · የኢትዮጵያ የሰብል ዝርያዎችና የእንስሳት ዝርያዎች**
 
-Two open tables that every other module builds on:
+Open tables that every other module builds on:
 
 | File | What | Status |
 |---|---|---|
 | [`livestock_breeds.csv`](livestock_breeds.csv) | Breeds and populations of cattle, sheep, goats, chickens, camels, horses, donkeys and honeybees, with synonyms, breed group, region and notes | 99 entries, every row cited in [`sources.csv`](sources.csv) |
+| [`crops.csv`](crops.csv) | Profiles of 60 major crops, vegetables, fruits and spices: group, scientific and Amharic name, reproduction, agro-ecology, diseases and pests, climate and soil stresses, breeding priorities, breeding method, altitude and rainfall envelope. Built by [`build_crops.py`](build_crops.py) | 60 crops; `evidence` says whether each row is backed by cited Ethiopian studies (24) or standard crop science to verify (36) |
 | [`crop_varieties.csv`](crop_varieties.csv) | Every variety in the national Crop Variety Register: crop, register issue, year, pedigree, adaptation, altitude, rainfall, seed rate, fertilizer, maturity, yield, breeder, seed colour, disease reaction | 8 verified sample records now; **run the scraper to fill the full register** |
 
 ## Livestock: how the list was built
@@ -17,7 +18,10 @@ Breed lists are not final. Official counts differ between sources (for example, 
 
 ## Crops: complete the register in one command
 
-The Ministry of Agriculture's seed portal publishes the Crop Variety Register online, one page per variety. A recent review counted 1,489 varieties of 149 crops registered up to 2021, and more are added every year. The portal can't be reached in bulk from the workspace where this repository was built, so the scraper is meant to run on your own computer:
+The Ministry of Agriculture's seed portal publishes the Crop Variety Register online, one page per variety. A recent review counted 1,489 varieties of 149 crops registered up to 2021, and more are added every year. The portal can't be reached in bulk from the workspace where this repository was built. Two ways to fill it:
+
+1. **On GitHub (easiest):** open the **Actions** tab, choose **Scrape crop variety register**, press **Run workflow**. It scrapes, rebuilds the site and commits the CSV. It also refreshes on the 1st of every month.
+2. **On your own computer:**
 
 ```bash
 python tools/scrape_ethioseed.py              # ids 1..2500, about 1 hour at 1.5 s per page

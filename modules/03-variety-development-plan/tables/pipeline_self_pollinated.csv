@@ -1,0 +1,9 @@
+Stage,Year,Entries,Sites,Reps,Design,Select on,Plots
+Parents and crossing block,1,40,1,1,Unreplicated crossing block,Parents that carry the product-profile traits,40
+F1 to F5 (single-seed descent or bulk),2-4,6000,1,1,Bulk plots; 2 generations a year with an irrigated off-season,"Heritable traits only: height, maturity, seed colour, disease on spreader rows",6000
+Observation nursery (F6 lines),5,600,1,1,Augmented design: unreplicated lines + repeated checks,"Disease at a hot-spot site, lodging, maturity, seed type",600
+Preliminary yield trial (PYT),6,120,2,2,"Alpha-lattice, 2 reps",Selection index: yield + disease + maturity,480
+Advanced / regional trial (AYT),7,60,5,3,"Alpha-lattice, 3 reps (Module 1)","Yield, stability, G x E, quality",900
+National variety trial (NVT),8-9,12,6,3,"RCBD, 3-4 reps, 2 years, standard + local checks",Yield advantage over the best check at most sites,216
+Variety verification trial (VVT),10,2,8,1,Large plots on station and farms with standard and local checks,National Variety Release Committee field visit,16
+Release and breeder seed,10-11,1,1,1,Registration; breeder seed plots,"Variety description, maintenance by the breeder",1

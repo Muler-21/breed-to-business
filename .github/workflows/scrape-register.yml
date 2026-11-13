@@ -1,0 +1,51 @@
+# Fills catalogue/crop_varieties.csv with the full national Crop Variety Register
+# (ethioseed.moa.gov.et) and rebuilds the site. GitHub's runners can reach the portal;
+# the workspace this repository was built in cannot.
+# Run it from the Actions tab (Run workflow); it also refreshes on the 1st of every month.
+name: Scrape crop variety register
+
+on:
+  workflow_dispatch:
+    inputs:
+      end_id:
+        description: "Highest variety page id to try"
+        default: "2500"
+  schedule:
+    - cron: "17 3 1 * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scrape-register
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -r requirements.txt
+      - name: Restore page cache
+        uses: actions/cache@v4
+        with:
+          path: catalogue/_cache_ethioseed
+          key: ethioseed-${{ github.run_id }}
+          restore-keys: ethioseed-
+      - name: Scrape the register
+        run: python tools/scrape_ethioseed.py --end "${{ github.event.inputs.end_id || '2500' }}" --delay 1.5
+      - name: Rebuild the site
+        run: python tools/build_site.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalogue/crop_varieties.csv catalogue/index.html crops/index.html
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git commit -m "Update crop variety register from ethioseed.moa.gov.et"
+          git push

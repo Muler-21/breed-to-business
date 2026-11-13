@@ -6,9 +6,12 @@ A practical curriculum for breeders, students and young agri-entrepreneurs in Af
 
 **Website:** https://muler-21.github.io/breed-to-business/
 
-## Start here: the catalogue
+## Start here: the crop advisor and the catalogue
 
-[`catalogue/`](catalogue/) holds open, sourced tables of **Ethiopia's livestock breeds** (99 breeds and populations of cattle, sheep, goats, chickens, camels, horses, donkeys and honeybees) and **the national Crop Variety Register**. The crop table fills completely with one command run on your own computer: `python tools/scrape_ethioseed.py` (see [catalogue/README.md](catalogue/README.md)).
+[`crops/`](https://muler-21.github.io/breed-to-business/crops/) is the **crop advisor**: profiles of 60 major crops, vegetables, fruits and spices of Ethiopia (8 cereals, 8 pulses, 6 oilseeds, 6 roots and tubers, 9 vegetables, 8 fruits, 12 spices, coffee, sugarcane and cotton). For each: where it grows, the diseases and pests to beat, climate and soil stresses, the traits to breed for, the breeding method, and sources. A variety finder ranks registered varieties for your altitude, rainfall and priority (yield, disease resistance, drought, early maturity, quality). Data: [`catalogue/crops.csv`](catalogue/crops.csv).
+
+
+[`catalogue/`](catalogue/) holds open, sourced tables of **Ethiopia's livestock breeds** (99 breeds and populations of cattle, sheep, goats, chickens, camels, horses, donkeys and honeybees) and **the national Crop Variety Register**. The crop table fills completely when the **Scrape crop variety register** workflow runs (Actions tab → Run workflow), or with `python tools/scrape_ethioseed.py` on your own computer (see [catalogue/README.md](catalogue/README.md)).
 
 ## Modules ready now
 
@@ -16,6 +19,7 @@ A practical curriculum for breeders, students and young agri-entrepreneurs in Af
 |---|---|---|---|
 | 1 | [Testing 60 teff varieties across locations and years](modules/01-teff-met/) | Which varieties to release, and where? | Alpha-lattice design, 15 randomised field books, site and combined ANOVA, heritability planning, AMMI, GGE "which won where", Finlay–Wilkinson stability, decision map, seed-business arithmetic, R script |
 | 2 | [Goats: breed better bucks, fatten for profit](modules/02-goat-breeding-fattening/) | Which bucks to keep? Which ration pays? | Community-based breeding records, sire-model heritability, BLUP breeding values, buck × village G × E, genetic gain; RCBD fattening trial, ANCOVA, Tukey, partial budget and break-even feed price |
+| 3 | [The variety development plan](modules/03-variety-development-plan/) | What to breed for, and how to get a variety from parents to farmers? | Product profiles, the self-pollinated pipeline (entries, sites, reps, designs per stage), plans for hybrid, clonal and perennial crops, disease screening with AUDPC, durable resistance, climate adaptation, selection index, genetic gain per year, seed multiplication and the seed business |
 
 Each module folder holds `run.py` (one command reproduces everything), `fieldbooks/`, `data/`, `tables/`, `figures/` and a written guide (`README.md`) in English with an Amharic summary. Data are simulated for teaching from published Ethiopian values; swap in your own field books to analyse a real trial.
 
@@ -23,6 +27,7 @@ Each module folder holds `run.py` (one command reproduces everything), `fieldboo
 pip install -r requirements.txt
 python modules/01-teff-met/run.py
 python modules/02-goat-breeding-fattening/run.py
+python modules/03-variety-development-plan/run.py
 python tools/scrape_ethioseed.py  # fill the full crop variety register (run on your computer)
 python tools/build_site.py        # rebuild the website pages
 ```
@@ -35,7 +40,7 @@ The analysis library `b2b/` uses only numpy, pandas, scipy and matplotlib, so it
 |---|---|
 | 1 · Know the resources | ✅ Catalogue of livestock breeds and the crop variety register (scraper). Next: landraces from the national genebank, performance data, Amharic names |
 | 2 · Design toolkit | CRD, RCBD, Latin square, split-plot, augmented designs for unreplicated germplasm, on-farm trials, sample size and power |
-| 3 · Crop breeding | Germplasm characterisation, crossing and generation advance, participatory variety selection, seed systems |
+| 3 · Crop breeding | Ready: crop advisor (60 crops), variety development plan (Module 3), multi-location trials (Module 1). Next: germplasm characterisation, participatory variety selection |
 | 4 · Livestock breeding | Dairy crossbreeding and milk recording, village poultry testing, sheep CBBPs (Menz, Bonga, Horro) |
 | 5 · Genomics and data | Genotyping, GWAS and genomic selection with PLINK and R |
 | 6 · The company | Business models, variety release and plant variety protection, finance and pitching |

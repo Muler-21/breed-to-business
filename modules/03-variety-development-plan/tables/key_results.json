@@ -1,0 +1,11 @@
+{
+ "n_crops": 60,
+ "yield_only_bad": 11,
+ "index_bad": 2,
+ "yield_loss": "0.20",
+ "days_saved": "4",
+ "gain_a": "0.84",
+ "gain_d": "2.62",
+ "gain_ratio": "3.1",
+ "cert_ha": "33,750"
+}

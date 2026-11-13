@@ -48,14 +48,14 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 .author .apps a{margin-right:10px}.author .copy{font-size:14px;margin-top:10px}
 #gc-views{font:500 13px var(--mono);color:var(--muted);text-align:center;margin:18px 0 0}
 </style></head><body>
-<header class="hero"><div class="wrap"><a class="home" href="../../">← Breed to Business · ከዝርያ እስከ ንግድ</a><p class="kicker">Module · <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/01-teff-met">code and data on GitHub</a></p></div></header><main class="wrap md"><h1>Module 1 · Testing 60 teff varieties across locations and years</h1>
+<header class="hero"><div class="wrap"><a class="home" href="../../">← Breed to Business · ከዝርያ እስከ ንግድ</a><p class="kicker">Module · <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/01-teff-met">code and data on GitHub</a></p></div></header><main class="wrap md"><h1 id="module-1-testing-60-teff-varieties-across-locations-and-years">Module 1 · Testing 60 teff varieties across locations and years</h1>
 <p><strong>ሞጁል 1 · 60 የጤፍ ዝርያዎችን በተለያዩ ቦታዎችና ዓመታት መሞከር</strong></p>
 <blockquote>
 <p><strong>The business question.</strong> A breeder (or a seed company) has 58 new teff lines and must decide which to release, and <em>where</em>. Farmers pay for seed that wins in <em>their</em> field, in good years and bad. This module takes you from an empty field to that decision: design, field layout, data recording, every ANOVA, the G × E analysis, and the charts a release committee asks for.</p>
 </blockquote>
 <p>The data here are <strong>simulated for teaching</strong>, with realistic Ethiopian values: trial practice follows published national teff trials (2 m × 2 m plots, three replications, alpha-lattice blocks), and the national average farm yield of teff is about 1.9 t/ha. Replace the data with your own field books and run the same script.</p>
 <hr />
-<h2>1. The trial plan</h2>
+<h2 id="1-the-trial-plan">1. The trial plan</h2>
 <table>
 <thead>
 <tr>
@@ -112,16 +112,16 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 </tr>
 </tbody>
 </table>
-<h3>Field layout (one site, one year)</h3>
+<h3 id="field-layout-one-site-one-year">Field layout (one site, one year)</h3>
 <p><img alt="Field layout" src="figures/01_field_layout.png" /></p>
 <p><strong>How to lay it out:</strong> peg the 35.5 m × 51 m rectangle, mark the 15 plot rows (every 3.5 m), and in each row two blocks of six 2 m plots. Walk the plots in serpentine order: plot 101 is top-left, plot 112 top-right, plot 113 starts back on the right. Sow, label each plot with its plot number (not the variety name, so scorers are not biased), and keep the field book in a plastic sleeve.</p>
-<h3>Recording yield</h3>
+<h3 id="recording-yield">Recording yield</h3>
 <p>Harvest the whole 4 m² plot (or a fixed net area if borders were damaged), thresh, clean and weigh the grain in grams. Convert:</p>
 <pre><code>yield (t/ha) = grams per plot ÷ (plot area in m² × 100)    e.g. 1,000 g ÷ (4 × 100) = 2.5 t/ha
 </code></pre>
 <p>Record days to maturity when about 90% of the panicles are mature, and note anything unusual (hail, waterlogging, birds) in the notes column. The analysis can only fix what you wrote down.</p>
 <hr />
-<h2>2. Step 1: analyse each site and year separately</h2>
+<h2 id="2-step-1-analyse-each-site-and-year-separately">2. Step 1: analyse each site and year separately</h2>
 <p>For each of the 15 environments the script fits <strong>replicate + block within replicate + variety</strong>, with variety tested <em>after</em> removing the block effects.</p>
 <p>ANOVA for Debre Zeit 2024:</p>
 <table>
@@ -311,7 +311,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 <li><strong>Efficiency vs RCBD</strong> above 100% means the small blocks paid off: the same data analysed as an ordinary randomised complete block design would have had a larger error.</li>
 <li><strong>Heritability (H²)</strong> shows how well one site ranks the varieties. One site alone is never enough.</li>
 </ul>
-<h2>3. Step 2: combined analysis over locations and years</h2>
+<h2 id="3-step-2-combined-analysis-over-locations-and-years">3. Step 2: combined analysis over locations and years</h2>
 <p>Locations and years are treated as <strong>random</strong>: they stand for the farms and the future seasons where the variety will be grown. So the variety effect is tested against the interactions, not only against plot error.</p>
 <table>
 <thead>
@@ -406,10 +406,10 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 <li><strong>G × L (12.6% of SS) is much larger than G × Y (3.5%).</strong> Variety ranking changes between <em>locations</em> in a repeatable way, but changes little between years. Repeatable differences can be used: recommend varieties for groups of locations, not for the whole country.</li>
 <li>Variance components (plot basis): genotype 0.0239, G × L 0.0282, G × Y 0.0070, G × L × Y 0.0065, error 0.0583.</li>
 </ul>
-<h2>4. Step 3: how many locations and years do you need?</h2>
+<h2 id="4-step-3-how-many-locations-and-years-do-you-need">4. Step 3: how many locations and years do you need?</h2>
 <p><img alt="Heritability planning" src="figures/04_heritability_planning.png" /></p>
 <p>With 5 locations, one year gives a heritability of <strong>0.573</strong>, three years <strong>0.711</strong>. Because G × L is large, adding locations helps more than adding years. Reaching 0.80 for the whole region needs about 8–10 locations; testing <em>within</em> each mega-environment (Step 4) is the cheaper way.</p>
-<h2>5. Step 4: AMMI and GGE: who wins where?</h2>
+<h2 id="5-step-4-ammi-and-gge-who-wins-where">5. Step 4: AMMI and GGE: who wins where?</h2>
 <p><img alt="Environment means" src="figures/02_environment_means.png" /></p>
 <p><img alt="Sources of variation" src="figures/03_variance_sources.png" /></p>
 <table>
@@ -470,10 +470,10 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 <li><strong>Low-moisture mega-environment (Alem Tena 2024, Alem Tena 2025, Alem Tena 2026): TF48 wins.</strong> Over the three Alem Tena seasons it averaged 2.01 t/ha against 1.91 t/ha for the drought check Tsedey and 1.65 t/ha for Quncho.</li>
 <li><strong>High-potential mega-environment (Debre Zeit, Adet, Debre Markos, Holetta): TF47 and TF50 win.</strong> TF47 averaged 2.77 t/ha against 2.67 t/ha for Quncho, and it matures about 11 days earlier.</li>
 </ul>
-<h2>6. Step 5: stability</h2>
+<h2 id="6-step-5-stability">6. Step 5: stability</h2>
 <p><img alt="Finlay-Wilkinson" src="figures/07_finlay_wilkinson.png" /></p>
 <p>A slope <strong>b near 1</strong> means the variety follows the environment like an average variety; <strong>b &gt; 1</strong> means it needs good conditions to shine; <strong>b &lt; 1</strong> means it holds up in poor conditions but cannot use good ones. The drought check Tsedey (b ≈ 0.36) is the classic "safe but low ceiling" type.</p>
-<h2>7. Step 6: the decision</h2>
+<h2 id="7-step-6-the-decision">7. Step 6: the decision</h2>
 <p><img alt="Decision map" src="figures/08_decision_map.png" /></p>
 <p><img alt="Rank heat map" src="figures/09_rank_heatmap.png" /></p>
 <p>Top entries by the yield–stability index (rank of mean yield + rank of AMMI stability value, smaller is better):</p>
@@ -582,7 +582,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 </tr>
 </tbody>
 </table>
-<h3>Recommendation</h3>
+<h3 id="recommendation">Recommendation</h3>
 <ol>
 <li><strong>Advance TF47 and TF50 to variety verification trials in high-potential areas.</strong> TF47 beats Quncho in 60% of environments and matures earlier, which also helps farmers escape end-of-season drought.</li>
 <li><strong>Advance TF48 for low-moisture areas</strong> such as the Alem Tena corridor. It is not the best nationally, but it is the best where farmers have the fewest options.</li>
@@ -591,14 +591,14 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 </ol>
 <p><strong>Value to a farmer</strong> (example price 120 birr/kg): every extra 0.1 t/ha is worth <strong>12,000 birr per hectare</strong> per season. TF48 in the dry area gives about 0.36 t/ha more than Quncho, about <strong>43,461 birr/ha</strong>.</p>
 <hr />
-<h2>8. From variety to business</h2>
+<h2 id="8-from-variety-to-business">8. From variety to business</h2>
 <p>A released variety is only valuable when farmers can buy clean seed of it.</p>
 <ul>
 <li><strong>Seed multiplication arithmetic:</strong> a 1 ha seed field yielding 2.5 t of clean seed sows about <strong>140 ha</strong> at 18 kg/ha (the upper end of the 15–18 kg/ha recommended for row planting), or 83 ha at 30 kg/ha broadcast.</li>
 <li><strong>Business models:</strong> a youth seed-producer cooperative licensed to multiply the variety; a seed-cleaning and packing service; contract growing for a processor that wants one grain colour.</li>
 <li><strong>What to measure next:</strong> farmer-preferred traits (grain colour, <em>injera</em> quality, straw for cattle) through participatory variety selection in the target mega-environment.</li>
 </ul>
-<h2>9. Run it yourself</h2>
+<h2 id="9-run-it-yourself">9. Run it yourself</h2>
 <pre><code class="language-bash">pip install numpy pandas scipy matplotlib
 python run.py                 # design, field books, analysis and all figures
 </code></pre>
@@ -609,7 +609,7 @@ python run.py                 # design, field books, analysis and all figures
 </ul>
 <p>Outputs: <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/01-teff-met/tables/"><code>tables/</code></a> (every ANOVA, means, decision table) and <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/01-teff-met/figures/"><code>figures/</code></a>.</p>
 <hr />
-<h2>በአማርኛ አጭር ማጠቃለያ</h2>
+<h2 id="_1">በአማርኛ አጭር ማጠቃለያ</h2>
 <ul class="am-block" lang="am">
 <li><strong>ጥያቄው፦</strong> ከ58 አዳዲስ የጤፍ መስመሮች የትኛው ይለቀቅ፣ የትስ?</li>
 <li><strong>ዲዛይኑ፦</strong> አልፋ-ላቲስ፣ 3 ድግግሞሽ፣ በእያንዳንዱ ድግግሞሽ 6 ማሳ ያላቸው 10 ብሎኮች፤ 2 ሜ × 2 ሜ ማሳ፤ 5 ቦታዎች × 3 ዓመታት፤ በየዓመቱ አዲስ የዕጣ ድልድል።</li>

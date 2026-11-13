@@ -48,15 +48,15 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 .author .apps a{margin-right:10px}.author .copy{font-size:14px;margin-top:10px}
 #gc-views{font:500 13px var(--mono);color:var(--muted);text-align:center;margin:18px 0 0}
 </style></head><body>
-<header class="hero"><div class="wrap"><a class="home" href="../../">← Breed to Business · ከዝርያ እስከ ንግድ</a><p class="kicker">Module · <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/02-goat-breeding-fattening">code and data on GitHub</a></p></div></header><main class="wrap md"><h1>Module 2 · Goats: breed better bucks, fatten for profit</h1>
+<header class="hero"><div class="wrap"><a class="home" href="../../">← Breed to Business · ከዝርያ እስከ ንግድ</a><p class="kicker">Module · <a href="https://github.com/Muler-21/breed-to-business/tree/main/modules/02-goat-breeding-fattening">code and data on GitHub</a></p></div></header><main class="wrap md"><h1 id="module-2-goats-breed-better-bucks-fatten-for-profit">Module 2 · Goats: breed better bucks, fatten for profit</h1>
 <p><strong>ሞጁል 2 · ፍየሎች፦ የተሻሉ አውራ ፍየሎችን ማዳቀልና ለትርፍ ማደለብ</strong></p>
 <blockquote>
 <p><strong>The business questions.</strong> (A) A goat breeders' cooperative must decide <em>which bucks to keep</em> each season so that every new generation of kids grows faster. (B) A young entrepreneur buying yearling goats to fatten must decide <em>which ration earns the most money</em>, not just which one grows goats fastest. This module answers both with real designs, every ANOVA, and the charts you need to decide.</p>
 </blockquote>
 <p>Both datasets are <strong>simulated for teaching</strong> from published Ethiopian values: community-based breeding programmes (CBBPs) for Abergelle, Central Highland and Woyto-Guji goats, and on-farm fattening trials of castrated yearling goats fed cowpea hay and concentrate. Replace them with your own records and run the same script.</p>
 <hr />
-<h2>Part A · Community-based breeding</h2>
-<h3>A1. The design: what to record, and how</h3>
+<h2 id="part-a-community-based-breeding">Part A · Community-based breeding</h2>
+<h3 id="a1-the-design-what-to-record-and-how">A1. The design: what to record, and how</h3>
 <p>Ethiopia's CBBPs keep goats in farmers' flocks. Trained enumerators record every kid, and the community selects bucks together. One season of records from 24 bucks rotated between three villages gave <strong>649 kids</strong> in this example.</p>
 <table>
 <thead>
@@ -91,7 +91,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 </table>
 <p>Studies of Ethiopian CBBPs found that birth weight adds little for genetic improvement and is hard to record accurately in villages, so recording can focus on 3- and 6-month weights. A blank sheet is in <a href="https://github.com/Muler-21/breed-to-business/blob/main/modules/02-goat-breeding-fattening/fieldbooks/cbbp_recording_sheet.csv"><code>fieldbooks/cbbp_recording_sheet.csv</code></a>.</p>
 <p><strong>Rotate bucks between villages.</strong> It limits inbreeding and, as a bonus, it lets you test whether a good buck is good everywhere (A4).</p>
-<h3>A2. Correct for the environment, then estimate heritability</h3>
+<h3 id="a2-correct-for-the-environment-then-estimate-heritability">A2. Correct for the environment, then estimate heritability</h3>
 <p><img alt="Non-genetic effects" src="figures/01_non_genetic_effects.png" /></p>
 <p>Least-squares ANOVA, with the buck (sire) entered <strong>after</strong> all fixed effects so it is compared fairly:</p>
 <table>
@@ -176,7 +176,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 <pre><code>h² = 4 σ²(sire) / (σ²(sire) + σ²(error)) = 0.35 ± 0.13
 </code></pre>
 <p>That is within the 0.15–0.40 range reported for weights in the Abergelle CBBP. It is high enough for selection to work.</p>
-<h3>A3. Rank the bucks (BLUP breeding values)</h3>
+<h3 id="a3-rank-the-bucks-blup-breeding-values">A3. Rank the bucks (BLUP breeding values)</h3>
 <p><img alt="Buck breeding values" src="figures/02_buck_breeding_values.png" /></p>
 <p>The script solves Henderson's mixed-model equations: fixed effects for village, year, season, sex, birth type and parity, and a random effect for the buck. Bucks with few kids are pulled towards zero, so luck is not mistaken for genetics.</p>
 <table>
@@ -249,7 +249,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 </tbody>
 </table>
 <p><strong>Decision: keep the top 6 bucks for the next season,</strong> retire the bottom ones from breeding, and sell them for meat. With about 27 kids per buck the accuracy is around 0.82; in this simulation the estimated values correlate 0.82 with the true ones.</p>
-<h3>A4. Is a good buck good in every village? (G × E for animals)</h3>
+<h3 id="a4-is-a-good-buck-good-in-every-village-g-e-for-animals">A4. Is a good buck good in every village? (G × E for animals)</h3>
 <p><img alt="Buck by village" src="figures/03_buck_by_village.png" /></p>
 <table>
 <thead>
@@ -290,15 +290,15 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 </tbody>
 </table>
 <p>Buck × village is <strong>not significant (p = 0.71)</strong>. The ranking of bucks holds across villages, so one joint evaluation and one buck exchange plan serve all three villages. If it were significant, you would rank bucks separately for each agro-ecology, exactly like the teff varieties in Module 1.</p>
-<h3>A5. What selection is worth</h3>
+<h3 id="a5-what-selection-is-worth">A5. What selection is worth</h3>
 <p><img alt="Genetic gain" src="figures/04_genetic_gain.png" /></p>
 <p>If the best 25% of young bucks are kept on their own six-month weight and does are not selected:</p>
 <pre><code>gain per year = i × √h² × σa ÷ (L_male + L_female) = 1.27 × 0.59 × 1.45 ÷ (2.5 + 3.5) = 0.18 kg
 </code></pre>
 <p>That is in line with the 0.17–0.25 kg per year predicted for the Abergelle CBBP. It is small in one year, but it <strong>accumulates and is permanent</strong>: after 10 years every kid is about 1.8 kg heavier at six months. For a cooperative selling 500 kids a year at 330 birr/kg, that is about <strong>299,775 birr more per year</strong> by year 10, for the cost of recording and a few good bucks.</p>
 <hr />
-<h2>Part B · Fattening trial: which ration pays?</h2>
-<h3>B1. The design</h3>
+<h2 id="part-b-fattening-trial-which-ration-pays">Part B · Fattening trial: which ration pays?</h2>
+<h3 id="b1-the-design">B1. The design</h3>
 <table>
 <thead>
 <tr>
@@ -336,7 +336,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 </tbody>
 </table>
 <p>Allocation sheet: <a href="https://github.com/Muler-21/breed-to-business/blob/main/modules/02-goat-breeding-fattening/fieldbooks/fattening_allocation.csv"><code>fieldbooks/fattening_allocation.csv</code></a>.</p>
-<h3>B2. Growth and ANOVA</h3>
+<h3 id="b2-growth-and-anova">B2. Growth and ANOVA</h3>
 <p><img alt="Growth curves" src="figures/05_growth_curves.png" /></p>
 <p>RCBD ANOVA for average daily gain:</p>
 <table>
@@ -472,7 +472,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 </tr>
 </tbody>
 </table>
-<h3>B3. The money: partial budget</h3>
+<h3 id="b3-the-money-partial-budget">B3. The money: partial budget</h3>
 <p>Only costs and returns that differ between rations are counted (CIMMYT partial-budget method). Example prices: buy 330 birr/kg live, sell 350 birr/kg, concentrate 45 birr/kg, cowpea hay 12 birr/kg.</p>
 <p><img alt="Partial budget" src="figures/07_partial_budget.png" /></p>
 <table>
@@ -528,7 +528,7 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 </table>
 <p><strong>Decision:</strong> at these prices <strong>T2 (cowpea hay) earns the most per goat</strong>. The concentrate rations grow goats faster but cost more than the extra weight is worth, so they are <em>dominated</em>. The marginal rate of return (MRR) of moving from T1 to T2 is 60%.</p>
 <p><strong>The number that changes the decision:</strong> T4 beats T2 only if concentrate costs less than <strong>33 birr/kg</strong>. Check the price before you buy feed; this one line of arithmetic decides the business.</p>
-<h3>B4. From trial to business</h3>
+<h3 id="b4-from-trial-to-business">B4. From trial to business</h3>
 <ul>
 <li><strong>Batch plan:</strong> 20 goats per 105-day batch, 3 batches a year. At T2 that is about 105,127 birr net a year before labour and housing, and it needs about 2.2 t of cowpea hay a year (20 goats × 0.4 kg × 90 days × 3 batches).</li>
 <li><strong>Grow the feed:</strong> under-sowing cowpea is one way to produce hay on the farm, and it turns a bought input into your own margin.</li>
@@ -536,13 +536,13 @@ footer{padding:30px 0 60px;color:var(--muted);font-size:15px}
 <li><strong>Join the CBBP:</strong> buy yearlings from improved bucks (Part A) and the fattening gain starts from a heavier, faster-growing animal.</li>
 </ul>
 <hr />
-<h2>Run it yourself</h2>
+<h2 id="run-it-yourself">Run it yourself</h2>
 <pre><code class="language-bash">pip install numpy pandas scipy matplotlib
 python run.py
 </code></pre>
 <p>Change the prices, rations and genetic parameters at the top of <code>run.py</code>. To use your own records, keep the column names of the CSV files in <code>data/</code> and replace the simulation lines with <code>pd.read_csv(...)</code>.</p>
 <hr />
-<h2>በአማርኛ አጭር ማጠቃለያ</h2>
+<h2 id="_1">በአማርኛ አጭር ማጠቃለያ</h2>
 <ul class="am-block" lang="am">
 <li><strong>ማዳቀል፦</strong> ከ6 ወር ክብደት የተገኘው የዘር ውርስ መጠን (h²) 0.35 ነው፤ ምርጥ 6 አውራ ፍየሎችን ይያዙ፤ አውራ × መንደር መስተጋብር የለም፤ በየዓመቱ ለእያንዳንዱ ግልገል 0.18 ኪግ ይጨመራል፣ ይህም ይከማቻል።</li>
 <li><strong>ማደለብ፦</strong> ሙሉ የፋብሪካ መኖ (T4) ፈጣን ዕድገት ቢሰጥም በዚህ ዋጋ በጣም ትርፋማው በአካባቢ የሚመረተው የላም አተር ድርቆሽ (T2) ነው።</li>
