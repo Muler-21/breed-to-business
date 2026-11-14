@@ -1,16 +1,37 @@
-# Checks which public genotype repositories GitHub's runners can reach and lists their files.
-name: Probe public genotype data
+# Mirrors the public (CC BY 4.0) African sheep PLINK genotype set of Da Silva et al. (2024,
+# Animal Genetics; figshare 26731360 / 26731114 / 26731378) to the branch `data-sheep`,
+# so the analysis can be developed and rerun anywhere with git access.
+name: Mirror public sheep genotype data
 on:
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
-  probe:
+  mirror:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Download Da Silva et al. 2024 African sheep PLINK set
+      - name: Download
         run: |
           mkdir -p d && cd d
-          for a in 26731378 26731360 26731114; do curl -sSL --max-time 300 -o $a.zip https://figshare.com/ndownloader/articles/$a/versions/2 || curl -sSL --max-time 300 -o $a.zip https://figshare.com/ndownloader/articles/$a; file $a.zip; unzip -o -q $a.zip || true; done
+          for a in 26731360 26731114; do curl -sSL --max-time 300 -o $a.zip https://figshare.com/ndownloader/articles/$a/versions/2; unzip -o -q $a.zip; rm $a.zip; done
+          curl -sSL --max-time 300 -o 26731378.zip https://figshare.com/ndownloader/articles/26731378/versions/1 && unzip -o -q 26731378.zip && rm 26731378.zip || true
           ls -la
-          f=$(ls *.fam | head -1); echo "== $f"; awk '{print $1}' "$f" | sort | uniq -c | sort -k2 | awk '{printf "%s:%s  ", $2, $1} END {print ""}'
-          head -3 *.fam; head -3 *.bim; cut -f1 *.bim | sort | uniq -c | head -40
+          test -s OaSNP2818x28210.bed && test -s OaSNP2818x28210.bim && test -s OaSNP2818x28210.fam
+          sha256sum OaSNP2818x28210.* > SHA256SUMS
+          cat > README.md <<'MD'
+          # Public African, European and Asian sheep genotypes (PLINK)
+
+          2,818 sheep × 28,210 SNPs (Ovine SNP50 subset), including 18 Ethiopian populations.
+
+          Source: Da Silva A. et al. (2024) History and genetic diversity of African sheep: contrasting phenotypic and genomic diversity. *Animal Genetics*. Data on figshare: https://doi.org/10.6084/m9.figshare.26731378.v2 (licence CC BY 4.0). Mirrored unchanged; please cite the original authors and the studies that generated each breed's genotypes.
+          MD
+          sed -i 's/^          //' README.md
+      - name: Push to branch data-sheep
+        run: |
+          cd d
+          git init -q -b data-sheep
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add . && git commit -q -m "Mirror Da Silva et al. 2024 African sheep PLINK set (CC BY 4.0)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" data-sheep
