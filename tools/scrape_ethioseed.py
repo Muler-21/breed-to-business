@@ -139,11 +139,23 @@ def main():
         rows.append(rec)
         if len(rows) % 50 == 0:
             print(len(rows), "varieties so far (id", i, ")")
+    if not rows:
+        print("No variety pages could be fetched: the portal may be unreachable from this network.",
+              "The existing", OUT, "was left unchanged.")
+        return 1
+    # merge with what is already in the table, so a partial run never deletes verified records
+    old = {}
+    if os.path.exists(OUT):
+        for r in csv.DictReader(open(OUT, encoding="utf-8")):
+            old[str(r.get("portal_id"))] = r
+    for r in rows:
+        old[str(r["portal_id"])] = r
+    merged = sorted(old.values(), key=lambda r: int(r["portal_id"]))
     with open(OUT, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=COLUMNS, extrasaction="ignore")
-        w.writeheader(); w.writerows(rows)
-    print("wrote", OUT, len(rows), "varieties")
-
+        w.writeheader(); w.writerows(merged)
+    print("wrote", OUT, len(merged), "varieties (", len(rows), "fetched in this run )")
+    return 0
 
 if __name__ == "__main__":
     sys.exit(main())

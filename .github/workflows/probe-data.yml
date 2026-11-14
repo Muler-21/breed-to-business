@@ -1,0 +1,15 @@
+# Checks which public genotype repositories GitHub's runners can reach and lists their files.
+name: Probe public genotype data
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: NRSP-8 repository, Edea et al. 2017 Ethiopian sheep 600K
+        run: |
+          curl -sSL --max-time 60 https://www.animalgenome.org/repository/pub/KORE2017.1122/ | sed -e 's/<[^>]*>/ /g' | grep -v '^\s*$' | head -80 || true
+      - name: PLINK 1.9 download
+        run: |
+          curl -sSLI --max-time 60 https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20231211.zip | head -5 || true

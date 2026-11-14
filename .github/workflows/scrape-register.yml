@@ -1,7 +1,10 @@
 # Fills catalogue/crop_varieties.csv with the full national Crop Variety Register
 # (ethioseed.moa.gov.et) and rebuilds the site. GitHub's runners can reach the portal;
 # the workspace this repository was built in cannot.
-# Run it from the Actions tab (Run workflow); it also refreshes on the 1st of every month.
+# Run it from the Actions tab (Run workflow). Note (Nov 2026): the portal timed out for
+# every request from GitHub's runners, so the monthly schedule is off; the scraper now
+# exits with an error and leaves the table unchanged when nothing can be fetched.
+# Running it on a computer that can open the portal in a browser is the reliable route.
 name: Scrape crop variety register
 
 on:
@@ -10,8 +13,6 @@ on:
       end_id:
         description: "Highest variety page id to try"
         default: "2500"
-  schedule:
-    - cron: "17 3 1 * *"
 
 permissions:
   contents: write

@@ -20,7 +20,7 @@ Breed lists are not final. Official counts differ between sources (for example, 
 
 The Ministry of Agriculture's seed portal publishes the Crop Variety Register online, one page per variety. A recent review counted 1,489 varieties of 149 crops registered up to 2021, and more are added every year. The portal can't be reached in bulk from the workspace where this repository was built. Two ways to fill it:
 
-1. **On GitHub (easiest):** open the **Actions** tab, choose **Scrape crop variety register**, press **Run workflow**. It scrapes, rebuilds the site and commits the CSV. It also refreshes on the 1st of every month.
+1. **On GitHub (easiest):** open the **Actions** tab, choose **Scrape crop variety register**, press **Run workflow**. It scrapes, rebuilds the site and commits the CSV. In November 2026 the portal did not answer requests from GitHub's servers, so this may fail; the table is then left unchanged.
 2. **On your own computer:**
 
 ```bash
