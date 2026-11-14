@@ -7,20 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Figshare 26731378 (Da Silva et al. 2024, African sheep 50K)
+      - name: Figshare search
         run: |
-          curl -sSL --max-time 60 https://api.figshare.com/v2/articles/26731378 | python3 -c "
-          import json,sys; d=json.load(sys.stdin); print(d.get('title')); print(d.get('license'))
-          print(d.get('description','')[:1500])
-          for f in d.get('files',[]): print(f['name'], f['size'], f['download_url'])"
-      - name: Download and peek
-        run: |
-          mkdir -p d && cd d
-          curl -sSL --max-time 60 https://api.figshare.com/v2/articles/26731378 | python3 -c "
-          import json,sys; [print(f['download_url'], f['name']) for f in json.load(sys.stdin)['files']]" > list.txt
-          while read url name; do curl -sSL --max-time 300 -o "$name" "$url"; done < list.txt
-          ls -la
-          for f in *; do case "$f" in *.zip) unzip -o -q "$f";; *.gz) gunzip -kf "$f";; *.tar*) tar xf "$f";; esac; done
-          ls -laR | head -60
-          for f in $(find . -name "*.fam" -o -name "*.ped" | head -3); do echo "== $f"; cut -d' ' -f1 "$f" | sort | uniq -c | sort -k1nr | head -100; done
-          for f in $(find . -name "*.txt" -o -name "*.csv" -o -name "*.tsv" | grep -v list.txt | head -5); do echo "== $f"; head -40 "$f"; done
+          for v in 1 2; do echo "== version $v"; curl -sSL --max-time 60 https://api.figshare.com/v2/articles/26731378/versions/$v | python3 -c "
+          import json,sys; d=json.load(sys.stdin); print(d.get('title')); [print('FILE',f['name'], f['size'], f['download_url']) for f in d.get('files',[])]; print(d.get('description','')[:2000])" || true; done
+          curl -sSL --max-time 60 -X POST -H 'Content-Type: application/json' -d '{"search_for":"OaSNP2818x28210","page_size":50}' https://api.figshare.com/v2/articles/search | python3 -c "
+          import json,sys; [print(a['id'], a['title'], a.get('url_public_html')) for a in json.load(sys.stdin)]"
+          curl -sSL --max-time 60 -X POST -H 'Content-Type: application/json' -d '{"search_for":"African sheep Plink genotypes 2818","page_size":50}' https://api.figshare.com/v2/articles/search | python3 -c "
+          import json,sys; [print(a['id'], a['title'], a.get('url_public_html')) for a in json.load(sys.stdin)]"
