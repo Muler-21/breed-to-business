@@ -7,11 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Figshare search
+      - name: Download Da Silva et al. 2024 African sheep PLINK set
         run: |
-          for v in 1 2; do echo "== version $v"; curl -sSL --max-time 60 https://api.figshare.com/v2/articles/26731378/versions/$v | python3 -c "
-          import json,sys; d=json.load(sys.stdin); print(d.get('title')); [print('FILE',f['name'], f['size'], f['download_url']) for f in d.get('files',[])]; print(d.get('description','')[:2000])" || true; done
-          curl -sSL --max-time 60 -X POST -H 'Content-Type: application/json' -d '{"search_for":"OaSNP2818x28210","page_size":50}' https://api.figshare.com/v2/articles/search | python3 -c "
-          import json,sys; [print(a['id'], a['title'], a.get('url_public_html')) for a in json.load(sys.stdin)]"
-          curl -sSL --max-time 60 -X POST -H 'Content-Type: application/json' -d '{"search_for":"African sheep Plink genotypes 2818","page_size":50}' https://api.figshare.com/v2/articles/search | python3 -c "
-          import json,sys; [print(a['id'], a['title'], a.get('url_public_html')) for a in json.load(sys.stdin)]"
+          mkdir -p d && cd d
+          for a in 26731378 26731360 26731114; do curl -sSL --max-time 300 -o $a.zip https://figshare.com/ndownloader/articles/$a/versions/2 || curl -sSL --max-time 300 -o $a.zip https://figshare.com/ndownloader/articles/$a; file $a.zip; unzip -o -q $a.zip || true; done
+          ls -la
+          f=$(ls *.fam | head -1); echo "== $f"; awk '{print $1}' "$f" | sort | uniq -c | sort -k2 | awk '{printf "%s:%s  ", $2, $1} END {print ""}'
+          head -3 *.fam; head -3 *.bim; cut -f1 *.bim | sort | uniq -c | head -40
