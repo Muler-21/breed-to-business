@@ -5,11 +5,22 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
-      - name: NRSP-8 repository, Edea et al. 2017 Ethiopian sheep 600K
+      - name: Figshare 26731378 (Da Silva et al. 2024, African sheep 50K)
         run: |
-          curl -sSL --max-time 60 https://www.animalgenome.org/repository/pub/KORE2017.1122/ | sed -e 's/<[^>]*>/ /g' | grep -v '^\s*$' | head -80 || true
-      - name: PLINK 1.9 download
+          curl -sSL --max-time 60 https://api.figshare.com/v2/articles/26731378 | python3 -c "
+          import json,sys; d=json.load(sys.stdin); print(d.get('title')); print(d.get('license'))
+          print(d.get('description','')[:1500])
+          for f in d.get('files',[]): print(f['name'], f['size'], f['download_url'])"
+      - name: Download and peek
         run: |
-          curl -sSLI --max-time 60 https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20231211.zip | head -5 || true
+          mkdir -p d && cd d
+          curl -sSL --max-time 60 https://api.figshare.com/v2/articles/26731378 | python3 -c "
+          import json,sys; [print(f['download_url'], f['name']) for f in json.load(sys.stdin)['files']]" > list.txt
+          while read url name; do curl -sSL --max-time 300 -o "$name" "$url"; done < list.txt
+          ls -la
+          for f in *; do case "$f" in *.zip) unzip -o -q "$f";; *.gz) gunzip -kf "$f";; *.tar*) tar xf "$f";; esac; done
+          ls -laR | head -60
+          for f in $(find . -name "*.fam" -o -name "*.ped" | head -3); do echo "== $f"; cut -d' ' -f1 "$f" | sort | uniq -c | sort -k1nr | head -100; done
+          for f in $(find . -name "*.txt" -o -name "*.csv" -o -name "*.tsv" | grep -v list.txt | head -5); do echo "== $f"; head -40 "$f"; done
