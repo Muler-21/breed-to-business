@@ -1,0 +1,13 @@
+Breed,Trait,h2,Source,Data
+Menz,Birth weight,0.29,MENZ-GP,CBBP 2009-2023
+Menz,Weaning weight,0.45,MENZ-GP,CBBP 2009-2023
+Menz,6-month weight,0.46,MENZ-GP,CBBP 2009-2023
+Menz,Yearling weight,0.42,MENZ-GP,CBBP 2009-2023
+Bonga,Birth weight,0.56,BONGA-GP,14 CBBPs 2012-2017
+Bonga,Weaning weight,0.36,BONGA-GP,14 CBBPs 2012-2017
+Bonga,6-month weight,0.22,BONGA-GP,14 CBBPs 2012-2017
+Bonga,Yearling weight,0.13,BONGA-GP,14 CBBPs 2012-2017
+Doyogena,Birth weight,0.33,DOYO-GP,CBBP 2013-2018
+Doyogena,Weaning weight,0.31,DOYO-GP,CBBP 2013-2018
+Doyogena,6-month weight,0.14,DOYO-GP,CBBP 2013-2018
+Doyogena,Litter size,0.28,DOYO-GP,CBBP 2013-2018

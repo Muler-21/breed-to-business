@@ -7,6 +7,7 @@ Open tables that every other module builds on:
 | File | What | Status |
 |---|---|---|
 | [`livestock_breeds.csv`](livestock_breeds.csv) | Breeds and populations of cattle, sheep, goats, chickens, camels, horses, donkeys and honeybees, with synonyms, breed group, region and notes | 99 entries, every row cited in [`sources.csv`](sources.csv) |
+| [`sheep_genomic_resources.csv`](sheep_genomic_resources.csv) | Public genotype and genome datasets and recorded breeding-programme data for Ethiopian sheep, with access route | 12 resources; the open SNP set is analysed in Module 4 |
 | [`crops.csv`](crops.csv) | Profiles of 60 major crops, vegetables, fruits and spices: group, scientific and Amharic name, reproduction, agro-ecology, diseases and pests, climate and soil stresses, breeding priorities, breeding method, altitude and rainfall envelope. Built by [`build_crops.py`](build_crops.py) | 60 crops; `evidence` says whether each row is backed by cited Ethiopian studies (24) or standard crop science to verify (36) |
 | [`crop_varieties.csv`](crop_varieties.csv) | Every variety in the national Crop Variety Register: crop, register issue, year, pedigree, adaptation, altitude, rainfall, seed rate, fertilizer, maturity, yield, breeder, seed colour, disease reaction | 8 verified sample records now; **run the scraper to fill the full register** |
 

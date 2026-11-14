@@ -2,7 +2,7 @@
 made from each module's README.md. Run after the module scripts:
     python tools/build_site.py
 """
-import os, re, glob, html, csv, json
+import posixpath, os, re, glob, html, csv, json
 import markdown
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -114,8 +114,11 @@ def module_page(folder):
         href = m.group(1)
         if href.startswith(("http", "#", "mailto")) or href.endswith((".png", ".jpg", ".svg")):
             return m.group(0)
+        if href.startswith("../") and href.endswith("/"):   # another page of this site (catalogue, crops, a module)
+            return m.group(0)
         kind = "tree" if href.endswith("/") else "blob"
-        return f'href="{REPO}/{kind}/main/modules/{name}/{href}"'
+        path = posixpath.normpath(f"modules/{name}/{href}")
+        return f'href="{REPO}/{kind}/main/{path}"'
     body = re.sub(r'href="([^"]+)"', fix, body)
     # Amharic summary paragraphs get the Ethiopic font
     body = re.sub(r'(<h2[^>]*>በአማርኛ አጭር ማጠቃለያ</h2>\s*)<ul>', r'\1<ul class="am-block" lang="am">', body)
@@ -143,9 +146,11 @@ def module_page(folder):
 def home(mods):
     am = {"01-teff-met": "60 የጤፍ ዝርያዎችን በተለያዩ ቦታዎችና ዓመታት መሞከር",
           "02-goat-breeding-fattening": "ፍየሎች፦ የተሻሉ አውራ ፍየሎችን ማዳቀልና ለትርፍ ማደለብ",
-          "03-variety-development-plan": "የዝርያ ማሻሻያ ዕቅድ፦ ከወላጅ እስከ አርሶ አደሩ ማሳ"}
+          "03-variety-development-plan": "የዝርያ ማሻሻያ ዕቅድ፦ ከወላጅ እስከ አርሶ አደሩ ማሳ",
+          "04-sheep-ground-to-company": "በግ፦ ከመሬት እስከ ኩባንያ"}
     thumbs = {"01-teff-met": "figures/06_gge_which_won_where.png", "02-goat-breeding-fattening": "figures/07_partial_budget.png",
-              "03-variety-development-plan": "figures/02_timelines.png"}
+              "03-variety-development-plan": "figures/02_timelines.png",
+              "04-sheep-ground-to-company": "genomics/figures/02_pca_ethiopia_only.png"}
     cards = "".join(f'<a class="card" href="{m["url"]}"><img src="{m["url"]}{thumbs.get(m["name"], "")}" alt="">'
                     f'<div class="t"><span class="n">MODULE {i + 1}</span><h2>{html.escape(m["title"].split("·")[-1].strip())}</h2>'
                     f'<h3 lang="am">{am.get(m["name"], "")}</h3><p>{html.escape(m["desc"])}</p></div></a>'
@@ -153,7 +158,7 @@ def home(mods):
     stages = [("1 · Know the resources", "Catalogue: 99 livestock breeds and populations of 8 species, and the national crop variety register (scraper included).", True),
               ("2 · Design toolkit", "CRD, RCBD, Latin square, split-plot, alpha-lattice, augmented designs, on-farm trials, power.", False),
               ("3 · Crop breeding", "Crop advisor (60 crops) · variety development plan, disease and climate breeding, selection index, seed (Module 3) · multi-location variety trials (Module 1) · next: germplasm characterisation, participatory selection.", True),
-              ("4 · Livestock breeding", "Community-based goat breeding and fattening (Module 2) · dairy crossbreeding · village poultry · sheep CBBPs.", True),
+              ("4 · Livestock breeding", "Goats: breeding and fattening (Module 2) · Sheep from the ground to a company, with real genomics (Module 4) · next: cattle, chicken, camel, honeybee.", True),
               ("5 · Genomics and data", "Genotyping, GWAS and genomic selection with PLINK and R.", False),
               ("6 · The company", "Business models, variety release and protection, finance and pitching.", False)]
     road = "".join(f'<div class="stage{" ready" if r else ""}"><b>{a}</b><span>{b}</span></div>' for a, b, r in stages)

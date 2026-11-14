@@ -20,6 +20,7 @@ A practical curriculum for breeders, students and young agri-entrepreneurs in Af
 | 1 | [Testing 60 teff varieties across locations and years](modules/01-teff-met/) | Which varieties to release, and where? | Alpha-lattice design, 15 randomised field books, site and combined ANOVA, heritability planning, AMMI, GGE "which won where", Finlay–Wilkinson stability, decision map, seed-business arithmetic, R script |
 | 2 | [Goats: breed better bucks, fatten for profit](modules/02-goat-breeding-fattening/) | Which bucks to keep? Which ration pays? | Community-based breeding records, sire-model heritability, BLUP breeding values, buck × village G × E, genetic gain; RCBD fattening trial, ANCOVA, Tukey, partial budget and break-even feed price |
 | 3 | [The variety development plan](modules/03-variety-development-plan/) | What to breed for, and how to get a variety from parents to farmers? | Product profiles, the self-pollinated pipeline (entries, sites, reps, designs per stage), plans for hybrid, clonal and perennial crops, disease screening with AUDPC, durable resistance, climate adaptation, selection index, genetic gain per year, seed multiplication and the seed business |
+| 4 | [Sheep: from the ground to a company](modules/04-sheep-ground-to-company/) | How to turn Ethiopia's 42.9 million sheep into a breeding and meat business? | **Real genomics** on public SNP data of 292 Ethiopian sheep (PCA, FST, ROH, genome scan, genomic relationships), published heritabilities and genetic trends, CBBP design and inbreeding control, AI, health calendar, crossbreeding lessons, fattening economics, markets (meat, export, leather), a three-business company plan |
 
 Each module folder holds `run.py` (one command reproduces everything), `fieldbooks/`, `data/`, `tables/`, `figures/` and a written guide (`README.md`) in English with an Amharic summary. Data are simulated for teaching from published Ethiopian values; swap in your own field books to analyse a real trial.
 
@@ -28,6 +29,8 @@ pip install -r requirements.txt
 python modules/01-teff-met/run.py
 python modules/02-goat-breeding-fattening/run.py
 python modules/03-variety-development-plan/run.py
+python modules/04-sheep-ground-to-company/genomics/analyse.py <path>/OaSNP2818x28210   # data: branch data-sheep
+python modules/04-sheep-ground-to-company/run.py
 python tools/scrape_ethioseed.py  # fill the full crop variety register (run on your computer)
 python tools/build_site.py        # rebuild the website pages
 ```
@@ -41,8 +44,8 @@ The analysis library `b2b/` uses only numpy, pandas, scipy and matplotlib, so it
 | 1 · Know the resources | ✅ Catalogue of livestock breeds and the crop variety register (scraper). Next: landraces from the national genebank, performance data, Amharic names |
 | 2 · Design toolkit | CRD, RCBD, Latin square, split-plot, augmented designs for unreplicated germplasm, on-farm trials, sample size and power |
 | 3 · Crop breeding | Ready: crop advisor (60 crops), variety development plan (Module 3), multi-location trials (Module 1). Next: germplasm characterisation, participatory variety selection |
-| 4 · Livestock breeding | Dairy crossbreeding and milk recording, village poultry testing, sheep CBBPs (Menz, Bonga, Horro) |
-| 5 · Genomics and data | Genotyping, GWAS and genomic selection with PLINK and R |
+| 4 · Livestock breeding | Ready: goats (Module 2), sheep ground to company with real genomics (Module 4). Next, species by species: goats in full, cattle (dairy and beef), chicken, camel, honeybee, equines |
+| 5 · Genomics and data | Started: public SNP data analysis for sheep (Module 4). Next: GWAS and genomic selection with PLINK and R |
 | 6 · The company | Business models, variety release and plant variety protection, finance and pitching |
 
 ## Author

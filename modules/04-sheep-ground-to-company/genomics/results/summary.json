@@ -1,0 +1,38 @@
+{
+ "animals_loaded": 475,
+ "snps_loaded": 28210,
+ "animals_after_qc": 475,
+ "snps_after_qc": 28206,
+ "ethiopian_animals": 292,
+ "ethiopian_pops": 18,
+ "pc1_all": 0.03280038289388633,
+ "pc2_all": 0.02788192793903564,
+ "pc1_eth": 0.03691607729101738,
+ "pc2_eth": 0.018386510495102707,
+ "he_min": [
+  "Bonga",
+  0.31342252749136573
+ ],
+ "he_max": [
+  "Farta",
+  0.3573244476833557
+ ],
+ "fst_eth_min": 0.0012345876751108402,
+ "fst_eth_max": 0.1056612955797977,
+ "fst_eth_mean": 0.058193647256225174,
+ "fst_max_pair": [
+  "Bonga",
+  "Kefis"
+ ],
+ "fst_sft_lft_genome": 0.03855076727979971,
+ "froh_highest": [
+  "Adane",
+  0.06237763223908115
+ ],
+ "froh_lowest": [
+  "Bonga",
+  0.00328711536819027
+ ],
+ "top_regions": 7,
+ "scan_threshold": 0.1120121015949523
+}

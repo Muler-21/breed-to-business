@@ -1,0 +1,6 @@
+Design,Proportion of rams kept,Accuracy r,Lm,i,Gain kg/yr,Gain % of mean/yr,6-month weight after 10 yr (kg)
+A. Visual choice of rams (no records),0.3,0.25,2.0,1.159,0.084,0.34,25.539
+B. Top 10 % of rams on 6-month weight (one record),0.1,0.469,2.0,1.755,0.238,0.965,27.084
+C. Top 10 % on BLUP EBV (pedigree + relatives),0.1,0.65,2.0,1.755,0.33,1.338,28.004
+D. C + AI with elite rams (top 3 %),0.03,0.65,2.0,2.268,0.427,1.729,28.97
+E. D + genomic EBV at weaning (rams used at 1 y),0.03,0.6,1.5,2.268,0.43,1.741,29.0

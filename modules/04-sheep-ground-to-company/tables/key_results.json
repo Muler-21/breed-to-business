@@ -1,0 +1,21 @@
+{
+ "n_animals": 475,
+ "n_snps": "28,206",
+ "n_eth": 292,
+ "he_lo": "Bonga (0.313)",
+ "he_hi": "Farta (0.357)",
+ "fst_mean": "0.058",
+ "fst_max": "0.106",
+ "fst_pair": "Bonga and Kefis",
+ "fst_menz": "0.001",
+ "fst_sft_lft": "0.039",
+ "roh_hi": "Adane (0.062)",
+ "roh_lo": "Bonga (0.003)",
+ "sP": "3.7",
+ "sA": "1.74",
+ "min_rams": 14,
+ "gain_b": "0.24",
+ "gain_e": "0.43",
+ "fat_final": "31.0",
+ "fat_margin": "90,270"
+}
