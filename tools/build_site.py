@@ -108,6 +108,15 @@ table.cat td.b{font-weight:600}
 def module_page(folder):
     name = os.path.basename(folder)
     src = open(os.path.join(folder, "README.md"), encoding="utf-8").read()
+    # Python-Markdown needs a blank line before a list that follows a paragraph line
+    fixed, prev = [], ""
+    for line in src.split("\n"):
+        is_item = re.match(r"^(\s*)([-*]|\d+\.) ", line) is not None
+        prev_item = re.match(r"^(\s*)([-*]|\d+\.) ", prev) is not None
+        if is_item and prev.strip() and not prev_item and not prev.startswith(("|", ">", "#")) and not line.startswith(" "):
+            fixed.append("")
+        fixed.append(line); prev = line
+    src = "\n".join(fixed)
     body = markdown.markdown(src, extensions=["tables", "fenced_code", "toc"])
     # links to folders and data files go to GitHub (Pages does not list folders)
     def fix(m):
@@ -147,10 +156,12 @@ def home(mods):
     am = {"01-teff-met": "60 የጤፍ ዝርያዎችን በተለያዩ ቦታዎችና ዓመታት መሞከር",
           "02-goat-breeding-fattening": "ፍየሎች፦ የተሻሉ አውራ ፍየሎችን ማዳቀልና ለትርፍ ማደለብ",
           "03-variety-development-plan": "የዝርያ ማሻሻያ ዕቅድ፦ ከወላጅ እስከ አርሶ አደሩ ማሳ",
-          "04-sheep-ground-to-company": "በግ፦ ከመሬት እስከ ኩባንያ"}
+          "04-sheep-ground-to-company": "በግ፦ ከመሬት እስከ ኩባንያ",
+          "05-five-businesses-debre-markos": "በደብረ ማርቆስ አካባቢ አምስት የግብርና ንግዶች፣ ከሀ እስከ ፐ"}
     thumbs = {"01-teff-met": "figures/06_gge_which_won_where.png", "02-goat-breeding-fattening": "figures/07_partial_budget.png",
               "03-variety-development-plan": "figures/02_timelines.png",
-              "04-sheep-ground-to-company": "genomics/figures/02_pca_ethiopia_only.png"}
+              "04-sheep-ground-to-company": "genomics/figures/02_pca_ethiopia_only.png",
+              "05-five-businesses-debre-markos": "figures/03_return_vs_investment.png"}
     cards = "".join(f'<a class="card" href="{m["url"]}"><img src="{m["url"]}{thumbs.get(m["name"], "")}" alt="">'
                     f'<div class="t"><span class="n">MODULE {i + 1}</span><h2>{html.escape(m["title"].split("·")[-1].strip())}</h2>'
                     f'<h3 lang="am">{am.get(m["name"], "")}</h3><p>{html.escape(m["desc"])}</p></div></a>'
@@ -160,7 +171,7 @@ def home(mods):
               ("3 · Crop breeding", "Crop advisor (60 crops) · variety development plan, disease and climate breeding, selection index, seed (Module 3) · multi-location variety trials (Module 1) · next: germplasm characterisation, participatory selection.", True),
               ("4 · Livestock breeding", "Goats: breeding and fattening (Module 2) · Sheep from the ground to a company, with real genomics (Module 4) · next: cattle, chicken, camel, honeybee.", True),
               ("5 · Genomics and data", "Genotyping, GWAS and genomic selection with PLINK and R.", False),
-              ("6 · The company", "Business models, variety release and protection, finance and pitching.", False)]
+              ("6 · The company", "Five business plans for Debre Markos with five-year models (Module 5) · next: variety release and protection, investor pitching.", True)]
     road = "".join(f'<div class="stage{" ready" if r else ""}"><b>{a}</b><span>{b}</span></div>' for a, b, r in stages)
     desc = ("A practical curriculum for African breeders and agri-entrepreneurs: field designs, every ANOVA, G × E, "
             "breeding values and the business that follows. English with Amharic summaries.")

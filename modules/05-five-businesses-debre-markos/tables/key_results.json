@@ -1,0 +1,18 @@
+{
+ "top5": [
+  "Teff flour and injera bakery",
+  "Sheep fattening and breeding rams",
+  "Honey: apiary, collection and packing",
+  "Teff and wheat quality seed",
+  "Forage seed, hay and feed blocks"
+ ],
+ "fin": {
+  "equity_share": 0.3,
+  "loan_rate": 0.18,
+  "loan_years": 5,
+  "grace_years": 1,
+  "tax_rate": 0.3,
+  "discount": 0.12
+ },
+ "usd": 160
+}
